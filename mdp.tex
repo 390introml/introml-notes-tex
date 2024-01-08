@@ -382,10 +382,10 @@ of $a$ that will maximize the expected $Q^h$ value of the next state.
   Q^0(s, a) & = 0                                                          \\
   Q^1(s, a) & = R(s, a) + 0                                                \\
   % Q^2(s, a) & = R(s, a) + \sum_{s'}T(s, a, s') \max_{a'} R(s', a')         \\
-  Q^2(s, a) & = R(s, a) + \sum_{s'}T(s, a, s') \max_{a'} Q^1(s', a')       \\
+  Q^2(s, a) & = R(s, a) + \gamma \sum_{s'}T(s, a, s') \max_{a'} Q^1(s', a')       \\
   \vdots
   \nonumber                                                                \\
-  Q^h(s, a) & = R(s, a) + \sum_{s'}T(s, a, s') \max_{a'} Q^{h - 1}(s', a')
+  Q^h(s, a) & = R(s, a) + \gamma \sum_{s'}T(s, a, s') \max_{a'} Q^{h - 1}(s', a')
 \end{align}
 where $(s',a')$ denotes the next time-step state/action pair. We can solve for the values of $Q^h$ with a simple recursive algorithm
 called {\it{finite-horizon value iteration}} that just computes $Q^h$ starting

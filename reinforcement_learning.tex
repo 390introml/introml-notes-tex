@@ -188,11 +188,11 @@ reward function $R$, and relies on samples to perform the updates.
   \li $s \gets s'$
 \end{codebox}
 
-With the pseudocode provided for \nameref{proc:Q_learn}, there are a few
+With the pseudo-code provided for \nameref{proc:Q_learn}, there are a few
 key things to note. First, we must determine which state to initialize the
 learning from. In the context of a game, this initial state may be well defined.
 In the context of a robot navigating an environment, one may consider
-sampling the initial state at random. In any case, the inital state is necessary
+sampling the initial state at random. In any case, the initial state is necessary
 to determine the trajectory the agent will experience as it navigates the environment.
 Second, different contexts will influence how we want to choose when to stop
 iterating through the while loop. Again, in some games there may be a clear
