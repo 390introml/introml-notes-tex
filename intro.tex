@@ -336,20 +336,20 @@ Recall that the goal of a ML system is typically to
 estimate or generalize, based on data provided.  Below, we examine the
 role of model-making in machine learning.
 
-\subsection{No model}
+\subsection{Non-parametric models}
 
 In some simple cases, in response to queries, we can generate
 predictions directly from the training data, without the construction
-of any intermediate model.  For example, in regression or
-classification, we might generate an answer to a new query by
-averaging answers to recent queries, as in the {\em nearest neighbor}
-method\index{model!no model}.
+of any intermediate model, or more precisely, without the learning of any parameters. 
 
-\subsection{Prediction rule}
+For example, in regression or classification, we might generate an answer to a new query by averaging answers to recent queries, as in the {\em nearest neighbor} method\index{model!no model}.
+
+
+\subsection{Parametric models}
 
 This two-step process is more typical:
 \begin{enumerate}
-  \item ``Fit'' a model to the training data
+  \item ``Fit'' a model (with some a-prior chosen parameterization) to the training data
   \item Use the model directly to make predictions\index{model!prediction rule}
 \end{enumerate}
 
