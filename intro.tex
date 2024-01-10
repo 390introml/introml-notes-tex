@@ -353,12 +353,13 @@ This two-step process is more typical:
   \item Use the model directly to make predictions\index{model!prediction rule}
 \end{enumerate}
 
-In the {\em prediction rule} setting of regression or classification, the
+In the {\em parametric models} setting of regression or classification, the
 model will be some hypothesis or prediction rule $y = h(x ; \Theta)$
 for some functional form $h$.  The idea is that $\Theta$ is a set
 of one or more parameter values\index{parameter} that will be determined by fitting the
-model to the training data and then be held fixed during testing.  Given a new
-$\ex{x}{n+1}$, we would then make the prediction $h(\ex{x}{n+1};
+model to the training data and then be held fixed during testing.  
+
+Given a new $\ex{x}{n+1}$, we would then make the prediction $h(\ex{x}{n+1};
   \Theta)$.  \note{We write $f(a ; b)$ to describe a function that is
   usually applied to a single argument $a$, but is a member of a
   parametric family of functions, with the particular function
@@ -366,8 +367,7 @@ $\ex{x}{n+1}$, we would then make the prediction $h(\ex{x}{n+1};
 
 The fitting process is often articulated as an optimization problem:
 Find a value of $\Theta$ that minimizes some criterion involving
-$\Theta$ and the data.
-An optimal strategy, if we knew the actual underlying distribution on
+$\Theta$ and the data. An optimal strategy, if we knew the actual underlying distribution on
 our data, $\Pr(X,Y)$\index{distribution}\note{This notation describes a so-called "joint distribution"; roughly, as the name suggests, it captures how both random variables $X$ and $Y$ "contribute" to the chance of something happening.}\  would be to predict the value of $y$ that	% needs escaped space after note
 minimizes the {\em expected loss}, which is also known as the {\em
     test error}\index{error!test error}.  If we don't have that actual underlying distribution, or
@@ -380,15 +380,13 @@ seek $\Theta$ that minimizes
   \mathcal{L}(h(\ex{x}{i};\Theta), \ex{y}{i})\;\;,
 \end{eqnarray*}
 
-where the loss function $\mathcal{L}(g, a)$ measures how bad it would be to make
-a guess of $g$ when the actual value is $a$.
+where the loss function $\mathcal{L}(g, a)$ measures how bad it would be to make a guess of $g$ when the actual value is $a$.
 
 We will find that minimizing training error alone is often not a good
 choice: it is possible to emphasize fitting the current data too
 strongly and end up with a hypothesis that does not generalize well
 when presented with new $x$ values.
 
-% why are only two model types discussed?
 
 \section{Model class and parameter fitting}\label{modelClass}
 
