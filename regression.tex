@@ -47,8 +47,8 @@ that is, that it makes good predictions on\anchorednote{examples it hasn't
   the exam that were not on the homework (training set).}
 But we don't know exactly what data this hypothesis might be tested on
 when we use it in the real world. So, we have to {\em{assume}} a
-connection between the training data and testing data; typically, they
-are drawn independently from the same probability distribution.
+connection between the training data and testing data -- typically, the assumption is that 
+they (the training and testing data) are drawn independently from the same probability distribution.
 
 To make this discussion more concrete, we have to provide a {\em loss
     function}, to say how unhappy we are when we guess an output $g$
@@ -92,7 +92,7 @@ methods.  So, if we can turn our problem into one of these problems,
 then there will be a lot of work already done for us!
 
 We begin by writing down an \emph{objective function} $J(\Theta)$,
-where $\Theta$ stands for {\em all} the parameters in our model.
+where $\Theta$ stands for {\em all} the parameters in our model (i.e., all possible choices over parameters).
 %Note that we will sometimes write $J(\theta, \theta_0)$
 We often write $J(\Theta; \data)$ to make clear the dependence on\note{Don't be too perturbed by the
   semicolon where you expected to see a comma!  It's a math way of
@@ -110,14 +110,14 @@ parameters $\Theta$ that minimize the objective function:
   specify the set ${\cal X}$ of values of $x$ over which we want to
   minimize.
 }
-\[ \Theta^* = \argmin{\Theta} J(\Theta)\;\;. \]
+\[ \Theta^* = \arg\min_{\Theta} J(\Theta)\;\;. \]
 A very common form for a machine-learning objective is
 %
 \begin{equation}
   J(\Theta) = \left(\frac{1}{n} \sum_{i=1}^n
   \underbrace{\mathcal{L}(h(\ex{x}{i}; \Theta),
     \ex{y}{i})}_\text{loss}\right) + \underbrace{\lambda}
-  _\text{non-negative constant} \underbrace{R(\Theta)}_\text{regularizer}.
+  _\text{non-negative constant} {R(\Theta)}.
   %
   \label{eq:ml_objective_loss}
 \end{equation}
@@ -135,12 +135,12 @@ Section~\ref{sec-regularization}.
 \section{Linear regression}
 
 To make this discussion more concrete, we have to provide a hypothesis
-class and loss function.
+class and a loss function.
 
 We will begin by picking a class of hypotheses $\hclass$ that we think
 might provide a good set of possible models of the relationship
 between $x$ and $y$ in our data.  We will start with a very simple
-class of {\em linear regression} hypotheses\index{regression!linear regression}.  It is both simple to
+class of {\em linear} hypotheses for regression\index{regression!linear regression}.  It is both simple to
 study and very powerful, and will serve as the basis for many other
 important techniques (even neural networks!).
 
