@@ -47,7 +47,7 @@ that is, that it makes good predictions on\anchorednote{examples it hasn't
   the exam that were not on the homework (training set).}
 But we don't know exactly what data this hypothesis might be tested on
 when we use it in the real world. So, we have to {\em{assume}} a
-connection between the training data and testing data -- typically, the assumption is that 
+connection between the training data and testing data -- typically, the assumption is that
 they (the training and testing data) are drawn independently from the same probability distribution.
 
 To make this discussion more concrete, we have to provide a {\em loss
@@ -99,8 +99,9 @@ We often write $J(\Theta; \data)$ to make clear the dependence on\note{Don't be 
   saying that we are mostly interested in this as a function of the
   arguments before the ``;'', but we should remember that there's a
   dependence on the stuff after it, as well.}
-the data $\data$.  The objective
-function describes how we feel about
+the data $\data$.
+
+The objective function describes how we feel about
 possible hypotheses $\Theta$: we will generally look for values for
 parameters $\Theta$ that minimize the objective function:
 \note{You can think about $\Theta^*$ here as ``the theta that
@@ -241,7 +242,7 @@ set, and return it.
 
 This seems kind of silly, but it's a learning algorithm, and it's not
 completely useless. \index{regression!random regression}
-\question{If your data set has $n$ elements and the dimension of the
+\question{If your data set has $n$ data points, and the dimension of the
   $x$ values is $d$, what is the size of an individual $\ex{\theta}{i}$?}
 \question{How do you think increasing $k$ will change the training
   error of the resulting hypothesis?}
@@ -251,15 +252,15 @@ completely useless. \index{regression!random regression}
 \section{Analytical solution: ordinary least squares}
 
 One very interesting aspect of the problem of finding a linear hypothesis
-that minimizes mean squared error (this general problem is often
-called {\em ordinary least squares} ({\sc ols})) is that we can find a
+that minimizes mean squared error is that we can find a
 closed-form formula for the answer!\note{What does ``closed form''
   mean?  Generally, that it involves direct evaluation of a
   mathematical expression using a fixed number of ``typical''
   operations (like arithmetic operations, trig functions, powers,
   etc.).  So equation~\ref{olsObjective} is not in closed form,
   because it's not at all clear what operations one needs to perform
-  to find the solution.}
+  to find the solution.} This general problem is often
+called the {\em ordinary least squares} ({\sc ols})
 
 Everything is easier to deal with if we assume that all of the the $\ex{x}{i}$
 have been augmented with an extra input dimension (feature) that
@@ -368,10 +369,10 @@ minimizes mean squared error.  That's pretty awesome!
 \label{sec-regularization}
 
 The objective function of Eq.~\ref{eq:ml_objective_loss} balances
-memorization, induced by the {\em loss} term, with generalization,
+(training-data) memorization, induced by the {\em loss} term, with generalization,
 induced by the {\em regularization} term.  Here, we address the need
 for regularization specifically for linear regression, and show how
-this can be realized using {\em ridge regression}.
+this can be realized using one popular regularization technique called {\em ridge regression}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Regularization and linear regression}
@@ -487,10 +488,10 @@ A common strategy for specifying a \emph{regularizer} is to use the form
 \[ R(\Theta) = \norm{\Theta - \Theta_{\it prior}}^2 \]
 when we have some idea in advance that $\Theta$ ought to be near some
 value $\Theta_{\it prior}$.
-\note{Learn about Bayesian methods in machine learning to see the
-  theory behind this and cool results!}
-Here, the notion of distance is quantified by the \textit{norm} \note{or more precisely, the $l_2$ norm} of
-the parameter vector: for any $d$-dimensional vector $v \in \mathbb{R}^d,$ we have,
+\note{Learn about Bayesian methods in machine learning to see the theory behind this and cool results!}
+
+Here, the notion of distance is quantified by the squaring the $l_2$ \textit{norm} of
+the parameter vector: for any $d$-dimensional vector $v \in \mathbb{R}^d,$ the $l_2$ \textit{norm} of $v$ is defined as,
 \[\|v\| = \sqrt{\sum_{i=1}^d |v_i|^2}\;\;. \]
 In the absence of such knowledge a default is
 to {\em regularize toward zero}:
@@ -574,9 +575,7 @@ becomes invertible when $\lambda > 0$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Evaluating learning algorithms}
-
-\label{sec-reg_learn_alg}
+\section{Evaluating learning algorithms}\label{sec-reg_learn_alg}
 
 In this section, we will explore how to evaluate supervised
 machine-learning algorithms.  We will study the special case of
