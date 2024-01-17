@@ -436,7 +436,7 @@ by much.
 \end{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For example, consider what happens when $d=2$ and $x_2$ is highly
+For example, consider what happens when $d=2,$ and $x_2$ is highly
 correlated with $x_1$, meaning that the data look like a line, as
 shown in the left panel of the figure below.  Thus, there isn't a \anchorednote{unique best hyperplane}{Sometimes there's technically a
   unique best hyperplane, but just because of noise.}.  Such
@@ -508,7 +508,7 @@ the figure.  Now the slope is much more sensible.
 \label{sec-ridge_regression}
 
 There are some kinds of trouble we can get into in regression problems.
-What if $\left(\Xt^T\Xt\right)$ is not invertible, as in the above example?
+What if $\left(\Xt^T\Xt\right)$ is not invertible?
 \question{Consider, for example, a situation where the data-set is
 just the same point repeated twice:
 $\ex{x}{1} = \ex{x}{2} = [1~~2]^T$.
@@ -564,7 +564,7 @@ Whew!  So the solution is:
   \theta_{\text{ridge}} = \left(\Xt^T\Xt + n\lambda I\right)^{-1}\Xt^T\Yt
   \label{eq:ridge_regression_solution}
 \end{equation}
-and the term in front
+and the term $\left(\Xt^T\Xt + n\lambda I\right)$
 \note{This is called ``ridge'' regression because we are adding a
   ``ridge'' of $n\lambda$ values along the diagonal of the matrix
   before inverting it.}
@@ -658,8 +658,8 @@ class $\hclass$; it looks like
   \data_n \longrightarrow \boxed{\text{learning alg ($\hclass$)}} \longrightarrow h
 \end{equation*}
 %
-Keep in mind that $h$ has parameters $\theta$ and $\theta_{0}$.  The
-learning algorithm itself may have its own parameters, and such
+% $\theta$ and $\theta_{0}$.
+Keep in mind that $h$ has parameters. The learning algorithm itself may have its own parameters, and such
 parameters are often called {\em hyperparameters}.  The analytical
 solutions presented above for linear regression,
 e.g., Eq.~\ref{eq:ridge_regression_solution}, may be thought of as
@@ -682,8 +682,8 @@ we would like to execute the following process multiple
 times:
 \begin{itemize}
   \item Train on a new training set (subset of our big data source)
-  \item Evaluate resulting $h$ on a validation set {\em that does not
-            overlap the training set} (but is still a subset of our same big
+  \item Evaluate resulting $h$ on a {\em validation set} that does not
+        overlap the training set (but is still a subset of our same big
         data source)
 \end{itemize}
 % Average the performance of the resulting hypotheses over the different
@@ -703,7 +703,7 @@ analysis).  \\
   \li divide $\data$ into $k$ chunks $\data_1, \data_2, \ldots \data_k$ (of roughly equal size)
   \li \For $i \gets 1$ \To $k$
   \li   \Do
-  train $h_i$ on $\data \setminus \data_i$ (withholding chunk $\data_i$)
+  train $h_i$ on $\data \setminus \data_i$ (withholding chunk $\data_i$ as the validation set)
   \li     compute ``test'' error $\mathcal{E}_i (h_i)$ on withheld data $\data_i$
   \End
   \li \Return $\frac{1}{k} \sum_{i=1}^k \mathcal{E}_i (h_i)$
@@ -711,7 +711,7 @@ analysis).  \\
 
 It's very important to understand that (cross-)validation neither
 delivers nor evaluates a single particular hypothesis $h$.  It
-evaluates the {\em algorithm} that produces hypotheses.
+evaluates the {\em learning algorithm} that produces hypotheses.
 
 \subsubsection{Hyperparameter tuning}
 The hyper-parameters of a learning algorithm affect how the algorithm
