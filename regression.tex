@@ -228,7 +228,7 @@ Okay!  Given the objective in Eq.~\ref{eq:reg_mse_withconst}, how
 can we find good values of $\theta$ and $\theta_0$?  We'll study
 several general-purpose, efficient, interesting algorithms.  But
 before we do that, let's start with the simplest one we can think of:
-{\em guess a whole bunch of different values of $\theta$ and
+{\em guess a whole bunch ($k$) of different values of $\theta$ and
 $\theta_0$}, see which one has the smallest error on the training
 set, and return it.
 
@@ -244,7 +244,7 @@ This seems kind of silly, but it's a learning algorithm, and it's not
 completely useless. \index{regression!random regression}
 \question{If your data set has $n$ data points, and the dimension of the
   $x$ values is $d$, what is the size of an individual $\ex{\theta}{i}$?}
-\question{How do you think increasing $k$ will change the training
+\question{How do you think increasing the number of guesses $k$ will change the training
   error of the resulting hypothesis?}
 
 
