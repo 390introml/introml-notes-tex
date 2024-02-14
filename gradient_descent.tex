@@ -45,12 +45,12 @@ We start by considering gradient descent in one dimension. Assume
 $\Theta \in \R$, and that we know both $J(\Theta)$ and its first
 derivative with respect to $\Theta$, $J'(\Theta)$.  Here is pseudo-code
 for gradient descent on an arbitrary function $f$\index{gradient descent}.  Along with $f$ and
-its gradient 
+its gradient
 % AM_S2024 begin
-$\nabla_{\Theta}f$ (which, in the case of a scalar $\Theta$, is the same as its derivative $f'$), 
+$\nabla_{\Theta}f$ (which, in the case of a scalar $\Theta$, is the same as its derivative $f'$),
 % AM_S2024 end
-we have to specify some hyper-parameters. 
-These hyper-parameters include the initial value for parameter $\Theta$, a {\em step-size} 
+we have to specify some hyper-parameters.
+These hyper-parameters include the initial value for parameter $\Theta$, a {\em step-size}
 hyper-parameter $\eta$, and an {\em accuracy} hyper-parameter~$\epsilon$\index{gradient descent!learning rate}.
 
 The hyper-parameter $\eta$ is often called {\em learning rate} when
@@ -145,15 +145,16 @@ If $f$ is non-convex (and sufficiently smooth),
 % AM_S2024 begin
 one expects that
 % AM_S2024 end
-gradient descent (run long enough with small enough step size) will get very close to a local minimum point, though
+gradient descent (run long enough with small enough step size) will get very close to a point at which the gradient is zero, though
 we cannot guarantee that it will converge to a global minimum point.
+% \note{There are many "gaps" between a point having zero gradient and a global minimum. For example, a local maximum, or a so-called saddle point would be a point at which gradient is zero.}
+
 % AM_S2024 begin
-There are two notable exceptions to this common sense expectation: first, there are functions (even convex ones) with no minimum points,
-like $f(x)=\exp(-x)$, for which gradient descent with a positive step size converges to $+\infty$. 
-Second, gradient descent can get stagnated while approaching a point $x$ which is not a local minimum or maximum,
-but satisfies $f'(x)=0$. For example, for $f(x)=x^3$, starting gradient descent from the 
+There are two notable exceptions to this common sense expectation: First, gradient descent can get stagnated while approaching a point $x$ which is not a local minimum or maximum,
+but satisfies $f'(x)=0$. For example, for $f(x)=x^3$, starting gradient descent from the
 initial guess $x_{\it init}=1$, while using step size $\eta<1/3$
-will lead to $x^{(k)}$ converging to zero as $k\to\infty$(check this!)
+will lead to $x^{(k)}$ converging to zero as $k\to\infty$. Second, there are functions (even convex ones) with no minimum points,
+like $f(x)=\exp(-x)$, for which gradient descent with a positive step size converges to $+\infty$.
 % AM_S2024 end
 
 The plot below shows two different $x_{\it init}$, and how gradient descent
@@ -214,56 +215,56 @@ the dimensionality of $\Theta$.
   a way that assumes $\Theta$ is one dimensional?
 }
 
-% AM_S2024 begin
-\subsection{Gradient vs. Derivative}
-It is easy to fall into habit of using the words {\sl gradient} and {\sl derivative} interchangeably, but there is actually a significant difference.
-For a function $f: \R^m\rightarrow \R$, its derivative at point $x\in\R^m$ (strictly speaking, its {\sl total derivative} at $x$) 
-is a {\sl linear} function
-$L:\R^m\to\R$ which provides the best approximation of $f(x+\Delta)-f(x)$ for small $\Delta$,
-in the sense that 
-\[   
-\lim_{\|\Delta\|\to0+}\frac{\|f(x+\Delta)-f(x)-L(\Delta)\|}{\|\Delta\|}=0.
-\]
-When the elements of $\R^m$ are viewed as
-$m$-by-1 column vectors (as we do in this class), every linear function $L:\R^m\to\R$ can be written in the form
-$L(\Delta)=p\Delta$, where $p$ is a 1-by-$m$ real row matrix, the {\sl Jacobian} of $f$ at $x$. 
-This matrix $p$ is usually denoted by $p=df/dx$, and can be computed in terms of partial derivatives as
-\[ 
-\frac{df}{dx}=\begin{bmatrix}
-    \partial f / \partial x_1 &
-    \dots                         &
-    \partial f / \partial x_m
-  \end{bmatrix}
-\]
-What is described above corresponds to the so-called "numerator" convention  for denoting derivatives, which is most common.
+% % AM_S2024 begin
+% \subsection{Gradient vs. Derivative}
+% It is easy to fall into habit of using the words {\sl gradient} and {\sl derivative} interchangeably, but there is actually a significant difference.
+% For a function $f: \R^m\rightarrow \R$, its derivative at point $x\in\R^m$ (strictly speaking, its {\sl total derivative} at $x$)
+% is a {\sl linear} function
+% $L:\R^m\to\R$ which provides the best approximation of $f(x+\Delta)-f(x)$ for small $\Delta$,
+% in the sense that
+% \[
+%   \lim_{\|\Delta\|\to0+}\frac{\|f(x+\Delta)-f(x)-L(\Delta)\|}{\|\Delta\|}=0.
+% \]
+% When the elements of $\R^m$ are viewed as
+% $m$-by-1 column vectors (as we do in this class), every linear function $L:\R^m\to\R$ can be written in the form
+% $L(\Delta)=p\Delta$, where $p$ is a 1-by-$m$ real row matrix, the {\sl Jacobian} of $f$ at $x$.
+% This matrix $p$ is usually denoted by $p=df/dx$, and can be computed in terms of partial derivatives as
+% \[
+%   \frac{df}{dx}=\begin{bmatrix}
+%     \partial f / \partial x_1 &
+%     \dots                     &
+%     \partial f / \partial x_m
+%   \end{bmatrix}
+% \]
+% What is described above corresponds to the so-called "numerator" convention  for denoting derivatives, which is most common.
 
 
-In contrast, the {\sl gradient} $\nabla f$ of a function $f: \R^m\rightarrow \R$ at point $x\in\R^m$ provides a very rough estimate for the
-argument of maximum of $f(x+\Delta)-f(x)$ with respect to $\Delta$. The "roughness" corresponds to the fact that, instead of maximizing
-$f(x+\Delta)-f(x)$, the gradient  maximizes $L(\Delta)-0.5\|\Delta\|^2$ (equivalently, $-\nabla f$ minimizes
-$L(\Delta)+0.5\|\Delta\|^2$). Here $L(\Delta)$ is the total derivative of $f$ at
-$x$, hence a good {\sl linear} approximation of $f(x+\Delta)-f(x)$, but the $-0.5\|\Delta\|^2$ term is a wild guess at the 
-second order component of the Taylor series expansion of $f(x+\Delta)-f(x)$ (to be more accurate, $-0.5\|\Delta\|^2$ should be replaced by
-$0.5\Delta^Tf''(x)\Delta$, where $f''(x)$ is the {\sl Hessian} of $f$ at $x$, but this approach is much more expensive, and has its own issues).
-When $L(\Delta)=p\Delta$, where $p$ is a 1-by-$m$ row matrix, the maximum of $L(\Delta)-0.5\|\Delta\|^2$ is achieved at $\Delta=p^T$. Hence
-the gradient is the result of transposing the matrix representation of the derivative, when one is using the "numerator" convention.
+% In contrast, the {\sl gradient} $\nabla f$ of a function $f: \R^m\rightarrow \R$ at point $x\in\R^m$ provides a very rough estimate for the
+% argument of maximum of $f(x+\Delta)-f(x)$ with respect to $\Delta$. The "roughness" corresponds to the fact that, instead of maximizing
+% $f(x+\Delta)-f(x)$, the gradient  maximizes $L(\Delta)-0.5\|\Delta\|^2$ (equivalently, $-\nabla f$ minimizes
+% $L(\Delta)+0.5\|\Delta\|^2$). Here $L(\Delta)$ is the total derivative of $f$ at
+% $x$, hence a good {\sl linear} approximation of $f(x+\Delta)-f(x)$, but the $-0.5\|\Delta\|^2$ term is a wild guess at the
+% second order component of the Taylor series expansion of $f(x+\Delta)-f(x)$ (to be more accurate, $-0.5\|\Delta\|^2$ should be replaced by
+% $0.5\Delta^Tf''(x)\Delta$, where $f''(x)$ is the {\sl Hessian} of $f$ at $x$, but this approach is much more expensive, and has its own issues).
+% When $L(\Delta)=p\Delta$, where $p$ is a 1-by-$m$ row matrix, the maximum of $L(\Delta)-0.5\|\Delta\|^2$ is achieved at $\Delta=p^T$. Hence
+% the gradient is the result of transposing the matrix representation of the derivative, when one is using the "numerator" convention.
 
-The arbitrariness of the $\|\Delta\|^2$ term in the derivation of the gradient is glaring, which leads to the idea of replacing it with
-some other positive definite quadratic form $\Delta^TQ\Delta$, for which maximizing $L(\Delta)-0.5\Delta^TQ\Delta$ is computationally cheap (using
-$Q=f''(x)$ is very expensive in most applications, and there is the additional concern that, 
-for a non-convex function, $f''(x)$ does not have to be positive definite). 
-One can argue that many of the popular approaches to gradient-like optimization, 
-such as the {\sl Adam} are based on using a smart selection of matrix $Q$ in an alternative definition of the gradient.
+% The arbitrariness of the $\|\Delta\|^2$ term in the derivation of the gradient is glaring, which leads to the idea of replacing it with
+% some other positive definite quadratic form $\Delta^TQ\Delta$, for which maximizing $L(\Delta)-0.5\Delta^TQ\Delta$ is computationally cheap (using
+% $Q=f''(x)$ is very expensive in most applications, and there is the additional concern that,
+% for a non-convex function, $f''(x)$ does not have to be positive definite).
+% One can argue that many of the popular approaches to gradient-like optimization,
+% such as the {\sl Adam} are based on using a smart selection of matrix $Q$ in an alternative definition of the gradient.
 
-To make things more confusing, there is an alternative "denominator" convention, 
-in which the Jacobian is defined as transpose of its "numerator" version. 
-The denominator convention comes naturally when one interprets the elements of $\R^m$ as {\sl row vectors} 
-(i.e., 1-by-$m$ matrices), in which case linear functions
-$L:~\R^m\to\R$ are conveniently written in the form  $L(\Delta)=\Delta p$, where $p$ is a {\sl column} $m$-by-1 matrix. When the denominator
-convention is combined with treating the elements of $\R^m$ as column vectors, 
-the chain rule for differentiating compositions becomes rather cumbersome.
+% To make things more confusing, there is an alternative "denominator" convention,
+% in which the Jacobian is defined as transpose of its "numerator" version.
+% The denominator convention comes naturally when one interprets the elements of $\R^m$ as {\sl row vectors}
+% (i.e., 1-by-$m$ matrices), in which case linear functions
+% $L:~\R^m\to\R$ are conveniently written in the form  $L(\Delta)=\Delta p$, where $p$ is a {\sl column} $m$-by-1 matrix. When the denominator
+% convention is combined with treating the elements of $\R^m$ as column vectors,
+% the chain rule for differentiating compositions becomes rather cumbersome.
 
-% AM_S2024 end
+% % AM_S2024 end
 
 
 \section{Application to regression}
