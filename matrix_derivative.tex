@@ -145,11 +145,7 @@ We can then compute the derivative of $\am \xv$ with respect to $\xv$ as:
 \noindent Thus, computing the $(i,j)$ entry of $\frac{\partial \am \xv}{\partial \xv}$ requires computing the partial derivative $\partial (\am \xv)_j/\partial x_i:$
 
 \begin{align*}
-  \partial (\am \xv)_j/\partial x_i = \partial \left( \sum_{k=1}^n A_{j,k} x_k \right)/ \partial x_i =
-  \begin{cases}
-    0       & k \not= i \\
-    A_{j,i} & k = i.
-  \end{cases}
+  \partial (\am \xv)_j/\partial x_i = \partial \left( \sum_{k=1}^n A_{j,k} x_k \right)/ \partial x_i = A_{j,i}
 \end{align*}
 
 \noindent Therefore, the $(i,j)$ entry of $\frac{\partial \am \xv}{\partial \xv}$ is the $(j,i)$ entry of $\am$:
