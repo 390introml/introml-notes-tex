@@ -5,8 +5,8 @@ Linear regression and classification are powerful tools, but in the real world, 
 exhibit {\em non-linear} behavior that cannot immediately be
 captured by the linear models which we have built so far.  For example,
 suppose the true behavior of a system (with $d=2$) looks like this
-wavelet: \note{This plot is of the {\em jinc}
-  function $J_1(\rho)/\rho$ for $\rho=x_1^2 + x_2^2$}
+wavelet: \note{This plot is of the so-called {\em jinc}
+function $J_1(\rho)/\rho$ for $\rho^2=x_1^2 + x_2^2$}
 %
 % Note rho is radial distance squared, because we don't want to have to use
 % a sqrt in the polynomial basis
@@ -22,13 +22,13 @@ such peaked responses!
 A richer class of hypotheses can be obtained by performing a
 non-linear feature transformation $\phi(x)$ before doing the
 regression. That is, $\theta^Tx + \theta_0$ is a linear function of
-$x$, but $\theta^T\phi(x) + \theta_0$ is a non-linear function of $x$
+$x$, but $\theta^T\phi(x) + \theta_0$ is a non-linear function of $x,$
 if $\phi$ is a non-linear function of $x$.
 
 There are many different ways to construct $\phi$.  Some are
 relatively systematic and domain independent.
 Others are directly related to the semantics (meaning) of the original
-features, and we construct them deliberately with our domain in mind.
+features, and we construct them deliberately with our application (goal) in mind.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Gaining intuition about feature transformations}
@@ -38,27 +38,14 @@ features, and we construct them deliberately with our domain in mind.
 In this section, we explore the effects of non-linear feature
 transformations on simple classification problems, to gain intuition.
 
-Our favorite illustrative example is the ``exclusive or'' ({\sc xor})
-data set, the drosophila \note{D. Melanogaster is a species of fruit
-  fly, used as a simple system in which to study genetics, since 1910.}
-of machine-learning data sets:
 
-\begin{examplebox}
-  \begin{center}
-    \begin{tikzpicture}
-      \pic at (-1, -1) {plusblk};
-      \pic at (-1, +1) {minusblk};
-      \pic at (+1, -1) {minusblk};
-      \pic at (+1, +1) {plusblk};
-    \end{tikzpicture}
-  \end{center}
-\end{examplebox}
 
-There is no linear separator for this two-dimensional dataset!  But, we have a trick
-available:  take a low-dimensional data set and move it, using a
-non-linear transformation into a higher-dimensional space, and look
-for a linear separator there. Let's look at an example data set that
-starts in 1-D:
+% There is no linear separator for this two-dimensional dataset!  But, we have a trick
+% available:  take a low-dimensional data set and move it, using a
+% non-linear transformation into a higher-dimensional space, and look
+% for a linear separator there.
+
+Let's look at an example data set that starts in 1-D:
 
 \begin{examplebox}
   \begin{center}
@@ -143,6 +130,8 @@ positive by this separator.
     \end{tikzpicture}
   \end{center}
 \end{examplebox}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -231,7 +220,22 @@ The raw data (with $n=1000$ random samples) is plotted on the left, and the regr
 % What polynomial terms would be needed for a good basis of features, if the wavelet were centered somewhere other than at the origin?
 % }
 
-So, what if we try to solve the {\sc xor} classification problem using a polynomial
+Now let's look at a classification example and see how polynomial feature transformation may help us.
+
+One well-known example is the ``exclusive or'' ({\sc xor}) data set, the drosophila \note{D. Melanogaster is a species of fruit fly, used as a simple system in which to study genetics, since 1910.} of machine-learning data sets:
+
+\begin{examplebox}
+  \begin{center}
+    \begin{tikzpicture}
+      \pic at (-1, -1) {plusblk};
+      \pic at (-1, +1) {minusblk};
+      \pic at (+1, -1) {minusblk};
+      \pic at (+1, +1) {plusblk};
+    \end{tikzpicture}
+  \end{center}
+\end{examplebox}
+
+Clearly, this data set is not linearly separable. So, what if we try to solve the {\sc xor} classification problem using a polynomial
 basis as the feature transformation?  We can just take our
 two-dimensional data and transform it into a higher-dimensional data
 set, by applying $\phi$.  Now, we have a classification problem as
@@ -383,7 +387,7 @@ can take on one of $k$ discrete values.
         about ordering.\index{hand-built features!thermometer}
 
   \item{\bf Factored code:}  If your discrete values can sensibly be
-        decomposed into two parts (say the ``make'' and ``model'' of a car),
+        decomposed into two parts (say the ``maker'' and ``model'' of a car),
         then it's best to treat those as two separate features, and choose
         an appropriate encoding of each one from this list.\index{hand-built features!factored}
 
@@ -439,20 +443,20 @@ $1.0$ if word $j$ occurs in the document, and $0.0$ otherwise.
 \subsection{Numeric values}
 \label{realFeatures}
 If some feature is already encoded as a numeric value (heart rate,
-stock price, distance, etc.) then you should generally keep it as a
-numeric value.   An exception might be a situation in which you know
+stock price, distance, etc.) then we should generally keep it as a
+numeric value.   An exception might be a situation in which we know
 there are natural ``breakpoints'' in the semantics:  for example,
-encoding someone's age in the US, you might make an explicit
+encoding someone's age in the US, we might make an explicit
 distinction between under and over 18 (or 21), depending on what kind
-of thing you are trying to predict.   It might make sense to divide
+of thing we are trying to predict.   It might make sense to divide
 into discrete bins (possibly spacing them closer together for the very
 young) and to use a one-hot encoding for some sorts of medical situations
 in which we don't expect a linear (or even monotonic) relationship
 between age and some physiological features.
 
-If you choose to leave a feature as numeric, it is typically useful to
+If we choose to leave a feature as numeric, it is typically useful to
   {\em scale} it, so that it tends to be in the range $[-1, +1]$.
-Without performing this transformation, if you have one feature with
+Without performing this transformation, if we have one feature with
 much larger values than another, it will take the learning algorithm a
 lot of work to find parameters that can put them on an equal basis.
 So, we might perform transformation
@@ -463,12 +467,12 @@ standard deviation $1$.   This transformation is sometimes called {\em
     standardizing} a variable \note{Such standard variables are often known as
   ``z-scores,'' for example, in the social sciences.}.
 
-Then, of course, you might apply a higher-order polynomial-basis
+Then, of course, we might apply a higher-order polynomial-basis
 transformation to one or more groups of numeric features.
 
 \question{
   Consider using a polynomial basis of order $k$ as a feature
-  transformation $\phi$ on your data.  Would increasing $k$ tend to
+  transformation $\phi$ on our data.  Would increasing $k$ tend to
   increase or decrease structural error?  What about estimation error?
 }
 

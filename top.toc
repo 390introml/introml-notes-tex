@@ -51,8 +51,8 @@
 \contentsline {section}{\numberline {4.6}Prediction accuracy and validation}{39}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Feature representation}{40}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Gaining intuition about feature transformations}{40}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Systematic feature construction}{42}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Polynomial basis}{42}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.2}Systematic feature construction}{41}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Polynomial basis}{41}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Radial basis functions}{44}{subsection.5.2.2}%
 \contentsline {section}{\numberline {5.3}Hand-constructing features for real domains}{45}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Discrete features}{45}{subsection.5.3.1}%
