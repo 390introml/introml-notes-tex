@@ -58,94 +58,94 @@
 \contentsline {subsection}{\numberline {5.3.1}Discrete features}{45}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Text}{46}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}Numeric values}{46}{subsection.5.3.3}%
-\contentsline {chapter}{\numberline {6}Clustering}{48}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Clustering formalisms}{48}{section.6.1}%
-\contentsline {section}{\numberline {6.2}The k-means formulation}{49}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}K-means algorithm}{49}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Using gradient descent to minimize k-means objective}{51}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Importance of initialization}{51}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Importance of k}{51}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}k-means in feature space}{52}{subsection.6.2.5}%
-\contentsline {section}{\numberline {6.3}How to evaluate clustering algorithms}{53}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Neural Networks}{54}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Basic element}{55}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Networks}{55}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Single layer}{56}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Many layers}{57}{subsection.7.2.2}%
-\contentsline {section}{\numberline {7.3}Choices of activation function}{57}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Loss functions and activation functions}{59}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Error back-propagation}{59}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}First, suppose everything is one-dimensional}{59}{subsection.7.5.1}%
-\contentsline {subsection}{\numberline {7.5.2}The general case}{60}{subsection.7.5.2}%
-\contentsline {subsection}{\numberline {7.5.3}Derivations for the general case}{62}{subsection.7.5.3}%
-\contentsline {subsection}{\numberline {7.5.4}Reflecting on backpropagation}{62}{subsection.7.5.4}%
-\contentsline {section}{\numberline {7.6}Training}{64}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Optimizing neural network parameters}{65}{section.7.7}%
-\contentsline {subsection}{\numberline {7.7.1}Batches}{65}{subsection.7.7.1}%
-\contentsline {subsection}{\numberline {7.7.2}Adaptive step-size}{66}{subsection.7.7.2}%
-\contentsline {subsubsection}{\numberline {7.7.2.1}Running averages}{66}{subsubsection.7.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.7.2.2}Momentum}{67}{subsubsection.7.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.7.2.3}Adadelta}{68}{subsubsection.7.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.7.2.4}Adam}{68}{subsubsection.7.7.2.4}%
-\contentsline {section}{\numberline {7.8}Regularization}{69}{section.7.8}%
-\contentsline {subsection}{\numberline {7.8.1}Methods related to ridge regression}{69}{subsection.7.8.1}%
-\contentsline {subsection}{\numberline {7.8.2}Dropout}{70}{subsection.7.8.2}%
-\contentsline {subsection}{\numberline {7.8.3}Batch normalization}{70}{subsection.7.8.3}%
-\contentsline {chapter}{\numberline {8}Autoencoders}{73}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Autoencoder structure}{73}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Autoencoder Learning}{75}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Evaluating an autoencoder}{75}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Linear encoders and decoders}{75}{section.8.4}%
-\contentsline {section}{\numberline {8.5}Advanced encoders and decoders}{75}{section.8.5}%
-\contentsline {chapter}{\numberline {9}Convolutional Neural Networks}{77}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Filters}{78}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Max pooling}{80}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Typical architecture}{81}{section.9.3}%
-\contentsline {section}{\numberline {9.4}Backpropagation in a simple CNN}{82}{section.9.4}%
-\contentsline {subsection}{\numberline {9.4.1}Weight update}{82}{subsection.9.4.1}%
-\contentsline {subsection}{\numberline {9.4.2}Max pooling}{83}{subsection.9.4.2}%
-\contentsline {chapter}{\numberline {10}Recurrent Neural Networks}{84}{chapter.10}%
-\contentsline {section}{\numberline {10.1}State machines}{84}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Recurrent neural networks}{86}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Sequence-to-sequence RNN}{87}{section.10.3}%
-\contentsline {section}{\numberline {10.4}RNN as a language model}{87}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Back-propagation through time}{87}{section.10.5}%
-\contentsline {section}{\numberline {10.6}Vanishing gradients and gating mechanisms}{91}{section.10.6}%
-\contentsline {subsection}{\numberline {10.6.1}Simple gated recurrent networks}{92}{subsection.10.6.1}%
-\contentsline {subsection}{\numberline {10.6.2}Long short-term memory}{92}{subsection.10.6.2}%
-\contentsline {chapter}{\numberline {11}Transformers and large language models}{94}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Vector embeddings and tokens}{94}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Attention}{96}{section.11.2}%
-\contentsline {subsection}{\numberline {11.2.1}Towards language models with attention}{97}{subsection.11.2.1}%
-\contentsline {section}{\numberline {11.3}Transformers}{99}{section.11.3}%
-\contentsline {subsection}{\numberline {11.3.1}Formal definition of a transformer}{100}{subsection.11.3.1}%
-\contentsline {subsection}{\numberline {11.3.2}Variations and training}{102}{subsection.11.3.2}%
-\contentsline {chapter}{\numberline {12}Markov Decision Processes}{103}{chapter.12}%
-\contentsline {section}{\numberline {12.1}Definition and value functions}{103}{section.12.1}%
-\contentsline {subsection}{\numberline {12.1.1}Finite-horizon value functions}{105}{subsection.12.1.1}%
-\contentsline {subsection}{\numberline {12.1.2}Infinite-horizon value functions}{105}{subsection.12.1.2}%
-\contentsline {section}{\numberline {12.2}Finding policies for MDPs}{107}{section.12.2}%
-\contentsline {subsection}{\numberline {12.2.1}Finding optimal finite-horizon policies}{107}{subsection.12.2.1}%
-\contentsline {subsection}{\numberline {12.2.2}Finding optimal infinite-horizon policies}{109}{subsection.12.2.2}%
-\contentsline {chapter}{\numberline {13}Reinforcement learning}{111}{chapter.13}%
-\contentsline {section}{\numberline {13.1}Reinforcement learning algorithms overview}{112}{section.13.1}%
-\contentsline {section}{\numberline {13.2}Model-free methods}{112}{section.13.2}%
-\contentsline {subsection}{\numberline {13.2.1}Q-learning}{112}{subsection.13.2.1}%
-\contentsline {subsection}{\numberline {13.2.2}Function approximation: Deep Q learning}{115}{subsection.13.2.2}%
-\contentsline {subsection}{\numberline {13.2.3}Fitted Q-learning}{116}{subsection.13.2.3}%
-\contentsline {subsection}{\numberline {13.2.4}Policy search}{116}{subsection.13.2.4}%
-\contentsline {section}{\numberline {13.3}Model-based RL}{117}{section.13.3}%
-\contentsline {section}{\numberline {13.4}Bandit problems}{117}{section.13.4}%
-\contentsline {chapter}{\numberline {14}Non-parametric methods}{119}{chapter.14}%
-\contentsline {section}{\numberline {14.1}Nearest Neighbor}{120}{section.14.1}%
-\contentsline {section}{\numberline {14.2}Tree Models}{121}{section.14.2}%
-\contentsline {subsection}{\numberline {14.2.1}Regression}{122}{subsection.14.2.1}%
-\contentsline {subsubsection}{\numberline {14.2.1.1}Building a tree}{123}{subsubsection.14.2.1.1}%
-\contentsline {subsubsection}{\numberline {14.2.1.2}Pruning}{124}{subsubsection.14.2.1.2}%
-\contentsline {subsection}{\numberline {14.2.2}Classification}{124}{subsection.14.2.2}%
-\contentsline {subsection}{\numberline {14.2.3}Bagging}{126}{subsection.14.2.3}%
-\contentsline {subsection}{\numberline {14.2.4}Random Forests}{126}{subsection.14.2.4}%
-\contentsline {subsection}{\numberline {14.2.5}Tree variants and tradeoffs}{127}{subsection.14.2.5}%
+\contentsline {chapter}{\numberline {6}Neural Networks}{48}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Basic element}{49}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Networks}{49}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Single layer}{50}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Many layers}{51}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Choices of activation function}{51}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Loss functions and activation functions}{53}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Error back-propagation}{53}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}First, suppose everything is one-dimensional}{53}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}The general case}{54}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Derivations for the general case}{56}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}Reflecting on backpropagation}{56}{subsection.6.5.4}%
+\contentsline {section}{\numberline {6.6}Training}{58}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Optimizing neural network parameters}{59}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Batches}{59}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}Adaptive step-size}{60}{subsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.1}Running averages}{60}{subsubsection.6.7.2.1}%
+\contentsline {subsubsection}{\numberline {6.7.2.2}Momentum}{61}{subsubsection.6.7.2.2}%
+\contentsline {subsubsection}{\numberline {6.7.2.3}Adadelta}{62}{subsubsection.6.7.2.3}%
+\contentsline {subsubsection}{\numberline {6.7.2.4}Adam}{62}{subsubsection.6.7.2.4}%
+\contentsline {section}{\numberline {6.8}Regularization}{63}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Methods related to ridge regression}{63}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Dropout}{64}{subsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.8.3}Batch normalization}{64}{subsection.6.8.3}%
+\contentsline {chapter}{\numberline {7}Convolutional Neural Networks}{67}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Filters}{68}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Max pooling}{70}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Typical architecture}{71}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Backpropagation in a simple CNN}{72}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Weight update}{72}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Max pooling}{73}{subsection.7.4.2}%
+\contentsline {chapter}{\numberline {8}Recurrent Neural Networks}{74}{chapter.8}%
+\contentsline {section}{\numberline {8.1}State machines}{74}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Recurrent neural networks}{76}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Sequence-to-sequence RNN}{77}{section.8.3}%
+\contentsline {section}{\numberline {8.4}RNN as a language model}{77}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Back-propagation through time}{77}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Vanishing gradients and gating mechanisms}{81}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}Simple gated recurrent networks}{82}{subsection.8.6.1}%
+\contentsline {subsection}{\numberline {8.6.2}Long short-term memory}{82}{subsection.8.6.2}%
+\contentsline {chapter}{\numberline {9}Transformers and large language models}{84}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Vector embeddings and tokens}{84}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Attention}{86}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Towards language models with attention}{87}{subsection.9.2.1}%
+\contentsline {section}{\numberline {9.3}Transformers}{89}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Formal definition of a transformer}{90}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Variations and training}{92}{subsection.9.3.2}%
+\contentsline {chapter}{\numberline {10}Non-parametric methods}{93}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Nearest Neighbor}{94}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Tree Models}{95}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Regression}{96}{subsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.1}Building a tree}{97}{subsubsection.10.2.1.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.2}Pruning}{98}{subsubsection.10.2.1.2}%
+\contentsline {subsection}{\numberline {10.2.2}Classification}{98}{subsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.2.3}Bagging}{100}{subsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.2.4}Random Forests}{100}{subsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.2.5}Tree variants and tradeoffs}{101}{subsection.10.2.5}%
+\contentsline {chapter}{\numberline {11}Markov Decision Processes}{102}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Definition and value functions}{102}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Finite-horizon value functions}{104}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Infinite-horizon value functions}{104}{subsection.11.1.2}%
+\contentsline {section}{\numberline {11.2}Finding policies for MDPs}{106}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Finding optimal finite-horizon policies}{106}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Finding optimal infinite-horizon policies}{108}{subsection.11.2.2}%
+\contentsline {chapter}{\numberline {12}Reinforcement learning}{110}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Reinforcement learning algorithms overview}{111}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Model-free methods}{111}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}Q-learning}{111}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}Function approximation: Deep Q learning}{114}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}Fitted Q-learning}{115}{subsection.12.2.3}%
+\contentsline {subsection}{\numberline {12.2.4}Policy search}{115}{subsection.12.2.4}%
+\contentsline {section}{\numberline {12.3}Model-based RL}{116}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Bandit problems}{116}{section.12.4}%
+\contentsline {chapter}{\numberline {13}Clustering}{118}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Clustering formalisms}{118}{section.13.1}%
+\contentsline {section}{\numberline {13.2}The k-means formulation}{119}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}K-means algorithm}{119}{subsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.2.2}Using gradient descent to minimize k-means objective}{121}{subsection.13.2.2}%
+\contentsline {subsection}{\numberline {13.2.3}Importance of initialization}{121}{subsection.13.2.3}%
+\contentsline {subsection}{\numberline {13.2.4}Importance of k}{121}{subsection.13.2.4}%
+\contentsline {subsection}{\numberline {13.2.5}k-means in feature space}{122}{subsection.13.2.5}%
+\contentsline {section}{\numberline {13.3}How to evaluate clustering algorithms}{123}{section.13.3}%
+\contentsline {chapter}{\numberline {14}Autoencoders}{124}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Autoencoder structure}{124}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Autoencoder Learning}{126}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Evaluating an autoencoder}{126}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Linear encoders and decoders}{126}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Advanced encoders and decoders}{126}{section.14.5}%
 \contentsline {chapter}{\numberline {A}Matrix derivative common cases}{128}{appendix.1.A}%
 \contentsline {section}{\numberline {A.1}The shapes of things}{128}{section.1.A.1}%
 \contentsline {section}{\numberline {A.2}Some vector-by-vector identities}{129}{section.1.A.2}%

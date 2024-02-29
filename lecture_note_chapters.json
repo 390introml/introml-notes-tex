@@ -31,57 +31,57 @@
     },
     {
         "cnum": "6",
-        "title": "Clustering",
-        "page": 49,
-        "filename": "chapter_pdfs/chapter_Clustering.pdf"
-    },
-    {
-        "cnum": "7",
         "title": "Neural Networks",
-        "page": 55,
+        "page": 49,
         "filename": "chapter_pdfs/chapter_Neural_Networks.pdf"
     },
     {
-        "cnum": "8",
-        "title": "Autoencoders",
-        "page": 74,
-        "filename": "chapter_pdfs/chapter_Autoencoders.pdf"
-    },
-    {
-        "cnum": "9",
+        "cnum": "7",
         "title": "Convolutional Neural Networks",
-        "page": 78,
+        "page": 68,
         "filename": "chapter_pdfs/chapter_Convolutional_Neural_Networks.pdf"
     },
     {
-        "cnum": "10",
+        "cnum": "8",
         "title": "Recurrent Neural Networks",
-        "page": 85,
+        "page": 75,
         "filename": "chapter_pdfs/chapter_Recurrent_Neural_Networks.pdf"
     },
     {
-        "cnum": "11",
+        "cnum": "9",
         "title": "Transformers and large language models",
-        "page": 95,
+        "page": 85,
         "filename": "chapter_pdfs/chapter_Transformers_and_large_language_models.pdf"
     },
     {
-        "cnum": "12",
+        "cnum": "10",
+        "title": "Non-parametric methods",
+        "page": 94,
+        "filename": "chapter_pdfs/chapter_Non-parametric_methods.pdf"
+    },
+    {
+        "cnum": "11",
         "title": "Markov Decision Processes",
-        "page": 104,
+        "page": 103,
         "filename": "chapter_pdfs/chapter_Markov_Decision_Processes.pdf"
     },
     {
-        "cnum": "13",
+        "cnum": "12",
         "title": "Reinforcement learning",
-        "page": 112,
+        "page": 111,
         "filename": "chapter_pdfs/chapter_Reinforcement_learning.pdf"
     },
     {
+        "cnum": "13",
+        "title": "Clustering",
+        "page": 119,
+        "filename": "chapter_pdfs/chapter_Clustering.pdf"
+    },
+    {
         "cnum": "14",
-        "title": "Non-parametric methods",
-        "page": 120,
-        "filename": "chapter_pdfs/chapter_Non-parametric_methods.pdf"
+        "title": "Autoencoders",
+        "page": 125,
+        "filename": "chapter_pdfs/chapter_Autoencoders.pdf"
     },
     {
         "cnum": "A",
