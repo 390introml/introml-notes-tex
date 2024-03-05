@@ -459,7 +459,7 @@ If we choose to leave a feature as numeric, it is typically useful to
 Without performing this transformation, if we have one feature with
 much larger values than another, it will take the learning algorithm a
 lot of work to find parameters that can put them on an equal basis.
-So, we might perform transformation
+We could also perform a more involved scaling/transformation
 $\phi(x) = \dfrac{x - \overline{x}}{\sigma}$, where $\overline{x}$
 is the average of the $\ex{x}{i}$, and $\sigma$ is the standard deviation of
 the $\ex{x}{i}$.  The resulting feature values will have mean $0$ and
