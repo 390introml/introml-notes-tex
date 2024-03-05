@@ -152,9 +152,11 @@ the case of multiple layers.
 \subsection{Single layer}
 A {\em layer} is a set of units that, as we have just described, are
 not connected to each other. The layer is called
-  {\em fully connected}\index{neural network!fully connected} if, as in the diagram below, the inputs to each
-unit in the layer are the same (i.e., $x_1, x_2, \ldots x_m$ in this
-case).  A layer has input $x \in \R^m$ and output (also known as
+  {\em fully connected}\index{neural network!fully connected} if, as in the diagram below, 
+  all of the inputs
+% the inputs to each unit in the layer are the same 
+(i.e., $x_1, x_2, \ldots x_m$ in this
+case) are connected to every unit in the layer.  A layer has input $x \in \R^m$ and output (also known as
   {\em activation}) $a \in \R^n$.
 
 \begin{center}
@@ -340,7 +342,7 @@ These are shown mathematically below, followed by plots of these functions.
             0 & \text{if $z<0$}  \\
             z & \text{otherwise}
           \end{cases} = \max(0,z)$$
-  \item{\bf Sigmoid function:}\index{activation function!sigmoid} Also known as a {\em logistic} function, can
+  \item{\bf Sigmoid function:}\index{activation function!sigmoid} Also known as a {\em logistic} function. This can sometimes
         be interpreted as probability, because for any value of $z$ the
         output is in $(0, 1)$:
         $$\sigma(z) = \frac{1}{1+e^{-z}}$$
@@ -432,14 +434,14 @@ sigmoid, ReLU, and tanh activation functions.
   the input for which the derivative vanishes?
 }
 
-ReLUs are especially common in internal (``hidden'') layers, and
+ReLUs are especially common in internal (``hidden'') layers, 
 sigmoid activations are common for the output for binary
-classification and softmax for multi-class classification
+classification, and softmax activations are common for the output for multi-class classification
 (see Section~\ref{logistic} for an explanation).
 
 \section{Loss functions and activation functions}\index{neural network!loss and activation function choices}
 Different loss functions make different assumptions about the range of
-inputs they will get as input and, as we have seen, different
+values they will get as input and, as we have seen, different
 activation functions will produce output values in different ranges.
 When you are designing a neural network, it's important to make these
 things fit together well.  In particular, we will think about matching
@@ -451,7 +453,7 @@ Here is a table of loss functions and activations that make sense for them:
     \hline
     squared    & linear  & regression                 \\
     %  hinge & linear \\
-    {\sc nll}  & sigmoid & classification             \\
+    {\sc nll}  & sigmoid & binary classification             \\
     {\sc nllm} & softmax & multi-class classification
   \end{tabular}
 \end{center}
@@ -659,7 +661,7 @@ It's pretty typical to run the chain rule from left to right like we did above. 
   \cdot \frac{ \partial a^L }{ \partial z^L }
   \cdot \frac{ \partial \text{loss} }{ \partial a^L } \\
   \label{eq:gradz_oned}
-  &=& \frac{ \partial a^{l} }{ \partial z^l } \cdot w^l
+  &=& \frac{ \partial a^{l} }{ \partial z^l } \cdot w^{l+1}
   \cdots
   \frac{ \partial a^{L-1} }{ \partial z^{L-1} } \cdot w^L \cdot \frac{ \partial a^L }{ \partial z^L }
   \cdot \frac{ \partial \text{loss} }{ \partial a^L }.
@@ -710,9 +712,9 @@ That is, compare the general weight derivatives in Eq.~\ref{eq:gradloss} to the 
 
 Let's start by talking through each of the terms in the matrix version of these equations. Recall that loss is a scalar, and $W^l$ is a matrix of size $m^l \times n^l$. You can read about the conventions in the course for derivatives starting in this chapter in Appendix~\ref{app:matrix_deriv}. By these conventions (not the only possible conventions!), we have that $\partial \text{loss} / \partial W^l$ will be a matrix of size $m^l \times n^l$ whose $(i,j)$ entry is the scalar $\partial \text{loss} / \partial W^l_{i,j}$. In some sense, we're just doing a bunch of traditional scalar derivatives, and the matrix notation lets us write them all simultaneously and succinctly. In particular, for SGD, we need to find the derivative of the loss with respect to every scalar component of the weights because these are our model's parameters and therefore are the things we want to update in SGD.
 
-The next quantity we see in Eq.~\ref{eq:gradloss} is $A^{l-1}$, which we recall has size $m^l \times 1$ (or equivalently $n^{l-1} \times 1$ since it represents the outputs of the $l-1$ layer). Finally, we see $\partial \text{loss} / \partial Z^l$. Again, loss is a scalar, and $Z^l$ is a $n^l \times 1$ vector. So by the conventions in Appendix~\ref{app:matrix_deriv}, we have that $\partial \text{loss} / \partial Z^l$ has size $n^l \times 1$. The tranpose then has size $1 \times n^l$. Now you should be able to check that the dimensions all make sense in Eq.~\ref{eq:gradloss}; in particular, you can check that inner dimensions agree in the matrix multiplication and that, after the multiplication, we should be left with something that has the dimensions on the lefthand side.
+The next quantity we see in Eq.~\ref{eq:gradloss} is $A^{l-1}$, which we recall has size $m^l \times 1$ (or equivalently $n^{l-1} \times 1$ since it represents the outputs of the $l-1$ layer). Finally, we see $\partial \text{loss} / \partial Z^l$. Again, loss is a scalar, and $Z^l$ is a $n^l \times 1$ vector. So by the conventions in Appendix~\ref{app:matrix_deriv}, we have that $\partial \text{loss} / \partial Z^l$ has size $n^l \times 1$. The transpose then has size $1 \times n^l$. Now you should be able to check that the dimensions all make sense in Eq.~\ref{eq:gradloss}; in particular, you can check that inner dimensions agree in the matrix multiplication and that, after the multiplication, we should be left with something that has the dimensions on the lefthand side.
 
-Now let's look at Eq.~\ref{eq:gradz}. We're computing $\partial \text{loss} / \partial Z^l$ so that we can use it in Eq.~\ref{eq:gradloss}. The weights are familiar. The one part that remains is terms of the form $\partial A^l / \partial Z^l$. Checking out Appendix~\ref{app:matrix_deriv}, we see that this term should be a matrix of size $n^l \times n^l$ since $A^l$ and $Z^l$ both have size $n^l \times 1$. The $(i,j)$ entry of this matrix is $\partial A^l_j / \partial Z^l_i$. This scalar derivative is something that you can compute when you know your activation function. If you're not using a softmax activation function, $A^l_j$ typically is a function only of $Z^l_j$. So unless you're using a softmax activation function, $\partial A^l_j / \partial Z^l_i$ should equal 0 whenever $i \ne j$. And if you're not using a softmax activation function, $\partial A^l_j / \partial Z^l_j = (f^l)'(Z^l_j)$.
+Now let's look at Eq.~\ref{eq:gradz}. We're computing $\partial \text{loss} / \partial Z^l$ so that we can use it in Eq.~\ref{eq:gradloss}. The weights are familiar. The one part that remains is terms of the form $\partial A^l / \partial Z^l$. Checking out Appendix~\ref{app:matrix_deriv}, we see that this term should be a matrix of size $n^l \times n^l$ since $A^l$ and $Z^l$ both have size $n^l \times 1$. The $(i,j)$ entry of this matrix is $\partial A^l_j / \partial Z^l_i$. This scalar derivative is something that you can compute when you know your activation function. If you're not using a softmax activation function, $A^l_j$ typically is a function only of $Z^l_j$, which means that $\partial A^l_j / \partial Z^l_i$ should equal 0 whenever $i \ne j$, and that $\partial A^l_j / \partial Z^l_j = (f^l)'(Z^l_j)$.
 
 \question{Compute the dimensions of every term in Eqs.~\ref{eq:gradz_intermediate} and \ref{eq:gradz} using Appendix~\ref{app:matrix_deriv}. After you've done that, check that all the matrix multiplications work; that is, check that the inner dimensions agree and that the lefthand side and righthand side of these equations have the same dimensions.}
 
@@ -748,7 +750,7 @@ Finally, then, we match entries of the matrices on both sides of the equation ab
 
 \subsection{Reflecting on backpropagation}
 
-This general process of computing the gradients of loss with respect to the weights
+This general process of computing the gradients of the loss with respect to the weights
 is called {\em error back-propagation}.\index{error back-propagation}
 \note{We could call this
   ``blame propagation''.  Think of $\text{loss}$ as how mad we
@@ -763,8 +765,7 @@ is called {\em error back-propagation}.\index{error back-propagation}
   its inputs, and passing the blame back to them.}
 The idea
 is that we first do a {\em forward pass} to compute all the $a$ and
-$z$ values at all the layers, and finally the actual loss on this
-example.  Then, we can work backward and compute the gradient of the
+$z$ values at all the layers, and finally the actual loss.  Then, we can work backward and compute the gradient of the
 loss with respect to the weights in each layer, starting at layer $L$
 and going back to layer 1.
 
@@ -859,6 +860,340 @@ it as described in the next section.
 
 % \end{itemize}
 % \end{examplebox}
+
+
+
+%\chapter{Making NN's Work}
+\section{Training}
+Here we go!  Here's how to do stochastic gradient descent training on
+a feed-forward neural network.\index{neural network!training}   After this pseudo-code, we motivate
+the choice of initialization in lines 2 and 3.  The actual
+computation of the gradient values (e.g., $\partial\text{loss}/
+  \partial A^L$) is not directly defined in this code, because we want
+to make the structure of the computation clear.
+\question{What is $\partial Z^l / \partial W^l$? }
+\question{Which terms in the code below depend on $f^L$?}
+
+\begin{codebox}
+  \Procname{$\proc{SGD-Neural-Net}(\dataTrain, T, L, (m^1, \ldots,
+    m^L), (f^1, \ldots, f^L), \text{Loss})$}
+    \li     \For $l \gets 1$ \To $L$
+    \Do
+    \li        $W_{ij}^l \sim \text{Gaussian}(0, 1/m^l)$
+    \li        $W_{0j}^l \sim \text{Gaussian}(0, 1)$
+    \End
+    \li \For $t \gets 1$ \To $T$
+    \li   \Do
+  $i \gets \text{random sample from } \{1,\ldots,n\}$
+    \li     $A^0 \gets \ex{x}{i}$
+    \li     \Comment forward pass to compute the output $A^L$
+    \li     \For $l \gets 1$ \To $L$
+    \li       \Do
+  $Z^l \gets W^{l^T}A^{l-1} + W_0^l$
+    \li         $A^l \gets f^l(Z^l)$
+    \End
+    \li     $\text{loss} \gets \text{Loss}(A^L, \ex{y}{i})$
+    \li     \For $l \gets L$ \To 1:
+    \Do
+    \li       \Comment error back-propagation
+    \li       $\partial \text{loss}/\partial A^l \gets$ 	%
+    %            m x 1
+    {\bf if} $l < L$
+    {\bf then}
+    % dims:          n x 1                    *    m x n
+  $\partial Z^{l+1}/\partial A^l \cdot \partial \text{loss}/\partial Z^{l+1} $
+    % dims:  m x n                   *     n x 1
+    {\bf else}
+  $ \partial \text{loss}/\partial A^L$
+    \li       $\partial \text{loss}/\partial Z^l \gets \partial
+  A^l/\partial Z^l  \cdot \partial
+  \text{loss}/\partial A^l$
+    \li       \Comment compute gradient with respect to weights
+    \li       $\partial \text{loss}/\partial W^l  \gets        A^{l-1}      \cdot    \left( \partial \text{loss}/\partial Z^l  \right)^T $
+    %                           m x n              =            m x 1          *        1 x n
+    \li       $\partial \text{loss}/\partial W_0^l \gets       \partial \text{loss}/\partial Z^l $
+    %                           1 x n              =                  1 x n
+    \li       \Comment stochastic gradient descent update
+    \li       $W^l = W^l - \eta(t)\cdot \partial \text{loss}/\partial W^l$
+    \li       $W^l_0 = W_0^l - \eta(t)\cdot \partial \text{loss}/\partial W_0^l$
+  \End
+\end{codebox}
+
+Initializing $W$ is important;\index{neural network!initialization of weights}  if you do it badly there is a good
+chance the neural network training won't work well.  First, it is
+important to initialize the weights to random values.  We want
+different parts of the network to tend to ``address'' different
+aspects of the problem; if they all start at the same weights, the
+symmetry will often keep the values from moving in useful directions.
+Second, many of our activation functions have (near) zero slope when
+the pre-activation $z$ values have large magnitude, so we generally
+want to keep the initial weights small so we will be in a situation
+where the gradients are non-zero, so that gradient descent will have
+some useful signal about which way to go.
+
+One good general-purpose strategy is to choose each weight at random
+from a Gaussian (normal) distribution with mean 0 and standard
+deviation $(1/m)$ where $m$ is the number of inputs to the unit.
+\question{If the input $x$ to this unit is a vector of 1's, what would
+  the expected pre-activation $z$ value be with these initial
+  weights?}  We write this choice (where $\sim$ means ``is drawn
+randomly from the distribution'') as $W^l_{ij} \sim \text{Gaussian}\left(0,
+  \frac{1}{m^l}\right).$ It will often turn out (especially for fancier activations and loss
+functions) that computing
+$\frac{\partial \text{loss}}{\partial Z^L}$ is easier than computing
+$\frac{\partial \text{loss}}{\partial A^L}$ and $\frac{\partial A^L}{\partial Z^L}.$ So, we may instead ask for an implementation of a loss function to provide a backward method that computes $\partial \text{loss}/\partial Z^L$ directly.
+
+
+\section{Optimizing neural network parameters}
+\label{sec-make_nn_work}
+
+Because neural networks are just parametric functions, we can optimize
+loss with respect to the parameters using standard gradient-descent
+software, but we can take advantage of the structure of the loss
+function and the hypothesis class to improve optimization.  As we have
+seen, the modular function-composition structure of a neural network
+hypothesis makes it easy to organize the computation of the gradient.
+As we have also seen earlier, the structure of the loss function as a
+sum over terms, one per training data point, allows us to consider
+stochastic gradient methods.  In this section we'll consider some
+alternative strategies for organizing training, and also for making it
+easier to handle the step-size parameter.
+
+\subsection{Batches}
+Assume that we have an objective of the form
+\[J(W) = \sum_{i = 1}^n \mathcal{L}(h(\ex{x}{i}; W),  \ex{y}{i})\;\;,\]
+where $h$ is the function computed by a neural network, and $W$ stands
+for all the weight matrices and vectors in the network.
+
+Recall that, when we perform {\em batch} (or the vanilla) gradient descent, we use the update rule
+\[W_t = W_{t-1} - \eta\nabla_W J(W_{t-1})\;\;,\]
+which is equivalent to
+\[W_t = W_{t-1} - \eta\sum_{i=1}^n \nabla_W \mathcal{L}(h(\ex{x}{i}; W_{t-1}),
+  \ex{y}{i})\;\;.\]
+So, we sum up the gradient of loss at each training point,  with
+respect to $W$, and then take a step in the negative direction of
+the gradient.
+
+In {\em stochastic} gradient descent, we repeatedly pick a point
+$(\ex{x}{i}, \ex{y}{i})$ at random from the data set, and execute a
+weight update on that point alone:
+\[W_t = W_{t-1} - \eta \nabla_W \mathcal{L}(h(\ex{x}{i}; W_{t-1}),
+  \ex{y}{i})\;\;.\]
+As long as we pick points uniformly at random from the data set, and
+decrease $\eta$ at an appropriate rate, we are guaranteed, with high
+probability, to converge to at least a local optimum.
+
+These two methods have offsetting virtues.  The batch method takes
+steps in the exact gradient direction but requires a lot of
+computation before even a single step can be taken, especially if the
+data set is large.  The stochastic method begins moving right away,
+and can sometimes make very good progress before looking at even a
+substantial fraction of the whole data set, but if there is a lot of
+variability in the data, it might require a very small $\eta$ to
+effectively average over the individual steps moving in ``competing''
+directions.
+
+An effective strategy is to ``average'' between batch and stochastic
+gradient descent by using {\em mini-batches}.  For a mini-batch of
+size $K$, we select $K$ distinct data points uniformly at random from the data
+set and do the update based just on their contributions to the gradient
+\[W_t = W_{t-1} - \eta\sum_{i=1}^K \nabla_W \mathcal{L}(h(\ex{x}{i}; W_{t-1}),
+  \ex{y}{i})\;\;.\]
+Most neural network software packages are set up to do mini-batches.
+\question{For what value of $K$ is mini-batch gradient descent
+  equivalent to stochastic gradient descent?  To batch gradient
+  descent?}
+
+Picking $K$ unique data points at random from a large data-set is
+potentially computationally difficult.  An alternative strategy, if
+you have an efficient procedure for randomly shuffling the data set
+(or randomly shuffling a list of indices into the data set) is to
+operate in a loop, roughly as follows:
+
+\begin{codebox}
+  \Procname{$\proc{Mini-Batch-SGD}$(NN, data, K)}
+  \li     $n = $ length(data)
+  \li     \While not done:
+  \Do
+  \li        $\proc{Random-Shuffle}$(data)
+  \li        \For $i \gets 1$ \To $\lceil n/K \rceil$
+  \Do
+  \li           $\proc{Batch-Gradient-Update}$(NN, data$[(i - 1)K:iK]$)
+  \End
+  \End
+\end{codebox}
+See note on the ceiling\footnote{
+  In line 4 of the algorithm above, $\lceil \cdot \rceil$ is known
+  as the \emph{ceiling} function; it returns the smallest
+  integer greater than or equal to its input. E.g., $\lceil 2.5 \rceil = 3$ and $\lceil 3 \rceil = 3$.}
+function, for the case when $n/K$ is not an integer.
+
+\subsection{Adaptive step-size}
+Picking a value for $\eta$ is difficult and time-consuming.\index{adaptive step size}  If it's
+too small, then convergence is slow and if it's too large, then we
+risk divergence or slow convergence due to oscillation.  This problem
+is even more pronounced in stochastic or mini-batch mode, because we
+know we need to decrease the step size for the formal guarantees to
+hold.
+
+It's also true that, within a single neural network, we may well want
+to have different step sizes.  As our networks become {\em deep} (with
+increasing numbers of layers) we can find that magnitude of the
+gradient of the loss with respect the weights in the last layer,
+$\partial \text{loss} / \partial W_L$, may be substantially
+different from the gradient of the loss with respect to the weights in
+the first layer $\partial \text{loss} / \partial W_1$.  If you look
+carefully at Eq.~\ref{eq:gradz}, you can see that the output
+gradient is multiplied by all the weight matrices of the network and
+is ``fed back'' through all the derivatives of all the activation
+functions.  This can lead to a problem of {\em exploding}  or {\em
+    vanishing} gradients\index{exploding (or vanishing) gradients}, in which the back-propagated gradient is much
+too big or small to be used in an update rule with the same step size.
+
+So, we can consider having an independent step-size parameter {\em for each
+    weight}, and updating it based on a local view of how the gradient
+updates have been going.\note{This section is very strongly influenced
+by Sebastian Ruder's excellent blog posts on the topic:
+{\tt\scriptsize ruder.io/ optimizing-gradient-descent}}
+Some common strategies for this include \emph{momentum} (``averaging'' recent gradient updates), \emph{Adadelta} (take larger steps in parts of the space where $J(W)$ is nearly flat), and \emph{Adam} (which combines these two previous ideas). Details of these approaches are described in Appendix~\ref{adaptive-step-size-appendix}. 
+
+
+\section{Regularization}\index{neural network!regularization}
+So far, we have only considered optimizing loss on the training data
+as our objective for neural network training.   But, as we have
+discussed before, there is a risk of overfitting if we do this.  The
+pragmatic fact is that,  in current deep neural networks, which tend to be very
+large and to be trained with a large amount of data,  overfitting is
+not a huge problem.  This runs counter to our current theoretical
+understanding and the study of this question is a hot area of
+research.  Nonetheless, there are several strategies for regularizing
+a neural network, and they can sometimes be important.
+
+\subsection{Methods related to ridge regression}
+
+One group of strategies can, interestingly, be shown to have similar
+effects to each other: early stopping, weight decay, and adding noise
+to the training data. \note{Result is due to Bishop, described in his
+  textbook and here {\tt\scriptsize doi.org/10.1162/ neco.1995.7.1.108}.}
+
+Early stopping is the easiest to implement and is in fairly common
+use.  The idea is to train on your training set, but at every {\em
+    epoch} (a pass through the whole training set, or possibly more
+frequently), evaluate the loss of the current $W$ on a {\em validation
+    set}.  It will generally be the case that the loss on the training
+set goes down fairly consistently with each iteration, the loss on the
+validation set will initially decrease, but then begin to increase
+again.  Once you see that the validation loss is systematically
+increasing, you can stop training and return the weights that had the
+lowest validation error.
+
+Another common strategy is to simply penalize the norm of all the
+weights, as we did in ridge regression.  This  method is known as {\em
+    weight decay}\index{neural network!weight decay}, because when we take the gradient of the objective
+$$ J(W) = \sum_{i = 1}^{n}\mathcal{L}(\text{NN}(x^{(i)}), y^{(i)}; W)
+  + \lambda\|W\|^2 $$
+we end up  with an update of the form
+\begin{align*}
+  W_t & = W_{t-1} -
+  \eta\left(\left(\nabla_{W}\mathcal{L}(\text{NN}(x^{(i)}),
+  y^{(i)}; W_{t-1})\right) + 2\lambda W_{t-1}\right)                                      \\
+      & = W_{t-1}(1 - 2\lambda\eta) - \eta\left(\nabla_{W}\mathcal{L}(\text{NN}(x^{(i)}),
+    y^{(i)}; W_{t-1})\right) \;\;.
+\end{align*}
+This rule has the form of first ``decaying'' $W_{t-1}$ by a factor of
+$(1 - 2 \lambda \eta)$ and then taking a gradient step.
+
+Finally, the same effect can be achieved by perturbing the $\ex{x}{i}$
+values of the training data by adding a small amount of zero-mean
+normally distributed noise before each gradient computation.  It makes
+intuitive sense that it would be more difficult for the network to
+overfit to particular training data if they are changed slightly on
+each training step.
+
+\subsection{Dropout}
+Dropout\index{neural network!dropout} is a regularization method that was designed to work with deep
+neural networks.  The idea behind it is, rather than perturbing the
+data every time we train, we'll perturb the network!  We'll do this by
+randomly, on each training step, selecting a set of units in each
+layer and prohibiting them from participating.   Thus, all of the
+units will have to take a kind of  ``collective'' responsibility for
+getting the answer right, and will not be able to rely on any small
+subset of the weights to do all the necessary computation.  This tends
+also to make the network more robust to data perturbations.
+
+During the training phase, for each training example, for each unit,
+randomly with probability $p$ temporarily set $a^{\ell}_j = 0$. There
+will be no contribution to the output and no gradient update for the
+associated unit.
+\question{
+  Be sure you understand why, when using {\sc sgd}, setting an
+  activation value to 0 will cause that unit's weights not to be updated
+  on that iteration.
+}
+
+When we are done training and want to use the network to make
+predictions, we multiply all weights by $p$ to achieve the same average
+activation levels.
+
+Implementing dropout is easy!  In the forward pass during training, we let
+$$ a^{\ell} = f(z^{\ell}) * d^{\ell} $$
+where $*$ denotes component-wise product and $d^{\ell}$ is a vector of
+$0$'s and $1$'s drawn randomly with probability $p$.
+The backwards pass depends on $a^{\ell}$, so we do not need to make
+any further changes to the algorithm.
+
+It is common to set $p$ to $0.5$, but this is something one might
+experiment with to get good results on your problem and data.
+
+% Dropout is no longer in common use, but it is still interesting to
+% think about.
+
+\subsection{Batch normalization}
+
+Another strategy that seems to help with regularization and robustness
+in training is {\em batch normalization}.  \index{neural network!batch normalization}
+\note{For more  details see {\tt\scriptsize arxiv.org/abs/1502.03167}.}
+It was originally
+developed to address a problem of {\em covariate shift}:  that is, if
+you consider the second layer of a two-layer neural network, the
+distribution of its input values is changing over time as the first
+layer's  weights change.  Learning when the input distribution is
+changing is extra difficult:  you have to change your weights to
+improve your predictions, but also just to compensate for a change in
+your inputs  (imagine, for instance, that the magnitude of the inputs
+to your layer is increasing over time---then your weights will have to
+decrease, just to keep your predictions the same).
+
+So, when training with mini-batches, the idea is to {\em standardize}
+the input values for each mini-batch, just in the way that we did it
+in Section~\ref{realFeatures} of Chapter~\ref{chap-features}, subtracting off the mean
+and dividing by the standard deviation of each input dimension.  This
+means that the scale of the inputs to each layer remains the same, no
+matter how the weights in previous layers change.  However, this
+somewhat complicates matters, because the computation of the weight
+updates will need to take into account that we are performing this
+transformation.  In the modular view, batch normalization can be seen
+as a module that is applied to $z^l$, interposed after the product
+with $W^l$ and before input to $f^l$.\note{We follow here the
+  suggestion from the original paper of applying batch normalization
+  before the activation function.  Since then it has been shown that,
+  in some cases, applying it after works a bit better. But there
+  aren't any definite findings on which works better and when.}
+
+Although batch-norm was originally justified based on the problem of
+covariate shift, it's not clear that that is actually why it seems to
+improve performance.
+Batch normalization can also end up having a regularizing effect for similar
+reasons that adding noise and dropout do:  each mini-batch of data
+ends up being mildly perturbed, which prevents the network from
+exploiting very particular values of the data points.
+For those interested, the equations for batch normalization, including a derivation of the forward pass and backward pass, are described in Appendix~\ref{batch-norm-appendix}.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "top"
+%%% End:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
