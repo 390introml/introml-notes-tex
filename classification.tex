@@ -979,7 +979,7 @@ $\ex{x}{i}$ into a vector value $\ex{z}{i} \in \R^K$ by letting $\theta$ be a
       \vdots                         \\
       \exp(z_K) / \sum_{i} \exp(z_i)
     \end{bmatrix}\;\;.\]
-  which can be interpreted as a probability distribution over $K$ items. To make the final prediction of the class label, we can then look at the most likely probability over these $K$ entries in $g$ and return its corresponding index as our prediction.
+  which can be interpreted as a probability distribution over $K$ items. To make the final prediction of the class label, we can then look at $g,$ find the most likely probability over these $K$ entries in $g,$ (i.e. find the largest entry in $g,$) and return the corresponding index as the ``one-hot'' element of $1$ in our prediction.
 
   \question{Convince yourself that the vector of $g$ values will be
     non-negative and sum to 1.}
