@@ -5,27 +5,27 @@ extra: margin_maximization.tex
 
 # linear_classifiers.tex perceptron.tex logistic_regression.tex
 
-top.pdf: top.tex \
-	intro.tex \
-	regression.tex \
-	gradient_descent.tex \
-	classification.tex \
-	feature_representation.tex \
-	clustering.tex \
-	neural_networks.tex \
-	neural_networks_2.tex \
-	autoencoders.tex \
-	convolutional_neural_networks.tex \
-	rnn.tex \
-	transformers.tex \
-	mdp.tex \
-	reinforcement_learning.tex \
-	non_parametric.tex \
-	matrix_derivative.tex \
-	nutshell.tex \
-	macros.tex
+# top.pdf: top.tex \
+# 	intro.tex \
+# 	regression.tex \
+# 	gradient_descent.tex \
+# 	classification.tex \
+# 	feature_representation.tex \
+# 	clustering.tex \
+# 	neural_networks.tex \
+# 	neural_networks_2.tex \
+# 	autoencoders.tex \
+# 	convolutional_neural_networks.tex \
+# 	rnn.tex \
+# 	transformers.tex \
+# 	mdp.tex \
+# 	reinforcement_learning.tex \
+# 	non_parametric.tex \
+# 	matrix_derivative.tex \
+# 	nutshell.tex \
+# 	macros.tex
 
-	pdflatex top
+top.pdf:
 	pdflatex top
 
 split:	top.pdf
