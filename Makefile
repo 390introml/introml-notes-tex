@@ -26,6 +26,9 @@ extra: margin_maximization.tex
 # 	macros.tex
 
 top.pdf:
+	rm top.pdf
+	rm top.ist
+	rm lecture_note_chapters.json
 	pdflatex top
 
 split:	top.pdf
