@@ -33,15 +33,15 @@ There are two important pieces of prior structural knowledge
 we can bring to bear on this problem:
 \begin{itemize}
   \item{\bf Spatial locality:} \index{spatial locality} The set of pixels we will have to take
-  into consideration to find a cat will be near one another in the
-  image. \note{So, for example, we won't have to consider some combination
-    of pixels in the four corners of the image, in order to see if they encode
-    cat-ness.}
+        into consideration to find a cat will be near one another in the
+        image. \note{So, for example, we won't have to consider some combination
+          of pixels in the four corners of the image, in order to see if they encode
+          cat-ness.}
 
   \item{\bf Translation invariance:} \index{translation invariance} The pattern of pixels that
-  characterizes a cat is the same no matter where in the image the cat
-  occurs. \note{Cats don't look different if they're on the left or
-    the right side of the image.}
+        characterizes a cat is the same no matter where in the image the cat
+        occurs. \note{Cats don't look different if they're on the left or
+          the right side of the image.}
 \end{itemize}
 
 We will design neural network structures that take advantage of these
@@ -377,8 +377,7 @@ spatial range.
 Another common layer type, which accomplishes this aggregation, is
   {\em max pooling}.
 A max pooling layer operates like a filter, but has no weights. {\em
-    You can think of it as a pure functional layer, like a ReLU layer in
-    a fully connected network.}  It has a filter size\index{filter!filter size}, as in a filter
+    You can think of it as purely functional, like a ReLU in a fully connected network.}  It has a filter size\index{filter!filter size}, as in a filter
 layer, but simply returns the maximum value in its field.
 \note{We sometimes use the term {\em receptive field} or just {\em
       field} to mean the area of an input image that a filter is being

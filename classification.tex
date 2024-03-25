@@ -995,32 +995,32 @@ $\ex{x}{i}$ into a vector value $\ex{z}{i} \in \R^K$ by letting $\theta$ be a
 
   The negative log of the probability that we are making a correct guess is, then, for {\em one-hot} vector $y$ and {\em probability distribution}
   vector $g$,
-  $$\mathcal{L}_\text{nllm}(\text{g},\text{y}) =
-    - \sum_{k=1}^K \text{y}_k \cdot \log(\text{g}_k) \;\;.$$
-  We'll call this {\sc nllm} for {\em negative log likelihood
-      multiclass.} It is also worth noting that the NLLM loss function is also convex; however, we will omit the proof.
-  \question{Be sure you see that is $\mathcal{L}_\text{nllm}$ is minimized when the guess assigns high probability to the true class.}
-  \question{Show that $\mathcal{L}_\text{nllm}$ for $K = 2$ is the same as
-    $\mathcal{L}_\text{nll}$. }
+$$\mathcal{L}_\text{nllm}(\text{g},\text{y}) =
+  - \sum_{k=1}^K \text{y}_k \cdot \log(\text{g}_k) \;\;.$$
+We'll call this {\sc nllm} for {\em negative log likelihood
+    multiclass.} It is also worth noting that the NLLM loss function is also convex; however, we will omit the proof.
+\question{Be sure you see that is $\mathcal{L}_\text{nllm}$ is minimized when the guess assigns high probability to the true class.}
+\question{Show that $\mathcal{L}_\text{nllm}$ for $K = 2$ is the same as
+  $\mathcal{L}_\text{nll}$. }
 
-  \section{Prediction accuracy and validation}
+\section{Prediction accuracy and validation}
 
-  In order to formulate classification with a smooth objective function
-  that we can optimize robustly using gradient descent, we changed the
-  output from discrete classes to probability values and the loss
-  function from 0-1 loss to NLL.
-  However, when time comes to actually make a prediction we usually have
-  to make a hard choice:  buy stock in Acme or not?  And, we get
-  rewarded if we guessed right, independent of how sure or not we were
-  when we made the guess.
+In order to formulate classification with a smooth objective function
+that we can optimize robustly using gradient descent, we changed the
+output from discrete classes to probability values and the loss
+function from 0-1 loss to NLL.
+However, when time comes to actually make a prediction we usually have
+to make a hard choice:  buy stock in Acme or not?  And, we get
+rewarded if we guessed right, independent of how sure or not we were
+when we made the guess.
 
-  The performance of a classifier is often characterized by its {\em
-      accuracy}, which is the percentage of a data set that it predicts
-  correctly in the case of 0-1 loss. We can see that accuracy of hypothesis $h$ on data $\data$
-  is the fraction of the data set that does not incur any loss:
-  \[A(h; \data) = 1 - \frac{1}{n}\sum_{i=1}^n\mathcal{L}_{01}(\ex{g}{i}, \ex{y}{i})\;\;,\]
-  where $\ex{g}{i}$ is the final guess for one class or the other
-  that we make from $h(\ex{x}{i})$, e.g., after thresholding.
+The performance of a classifier is often characterized by its {\em
+    accuracy}, which is the percentage of a data set that it predicts
+correctly in the case of 0-1 loss. We can see that accuracy of hypothesis $h$ on data $\data$
+is the fraction of the data set that does not incur any loss:
+\[A(h; \data) = 1 - \frac{1}{n}\sum_{i=1}^n\mathcal{L}_{01}(\ex{g}{i}, \ex{y}{i})\;\;,\]
+where $\ex{g}{i}$ is the final guess for one class or the other
+that we make from $h(\ex{x}{i})$, e.g., after thresholding.
 It's noteworthy here that we use a different loss function for optimization
 than for evaluation. This is a compromise we make for computational
 ease and efficiency.
