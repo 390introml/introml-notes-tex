@@ -1,0 +1,54 @@
+\documentclass[10pt,oneside]{book}
+
+\input{macros}
+
+\title{Lecture Notes -- MIT 6.390 Spring 2024}
+\date{\copyright\ 2024 MIT. All Rights Reserved}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\clearpage
+
+\include{intro}
+\include{regression}
+\include{gradient_descent}
+\include{classification}
+\include{feature_representation}
+\include{neural_networks}
+\include{convolutional_neural_networks}
+\include{transformers}
+
+\include{non_parametric}
+\include{mdp}
+\include{reinforcement_learning}
+\include{unsupervised}
+% \include{clustering}
+% \include{autoencoders}
+
+\begin{appendices}
+    \include{matrix_derivative}
+    \include{neural_network_appendix}
+    %\include{einstein}
+    \include{rnn}
+    \include{nutshell}
+
+    \printindex
+    \clearpage
+    \glsaddall
+    \printglossaries
+    \clearpage
+\end{appendices}
+
+%\include{perceptron}
+%\include{margin_maximization}
+%\include{linear_classifiers}
+%\include{logistic_regression} old version
+%\include{recommender_systems}
+%\include{collaborative_filtering}
+
+
+
+\end{document}
