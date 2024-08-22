@@ -31,7 +31,7 @@ top.pdf:
 split:	top.pdf
 	python3 make_chapter_pdfs.py
 	touch split
-	cp top.pdf chapter_pdfs/6_390_lecture_notes_spring24.pdf
+	cp top.pdf chapter_pdfs/6_390_lecture_notes_fall24.pdf
 
 to_catsoop: top.pdf split
 	cp chapter_pdfs/*.pdf ../web/__STATIC__/LectureNotes/
