@@ -34,144 +34,144 @@
 \contentsline {subsubsection}{\numberline {2.7.2.3}Hyperparameter tuning}{22}{subsubsection.2.7.2.3}
 \contentsline {chapter}{\numberline {3}Gradient Descent}{23}{chapter.3}
 \contentsline {section}{\numberline {3.1}Gradient descent in one dimension}{23}{section.3.1}
-\contentsline {section}{\numberline {3.2}Multiple dimensions}{25}{section.3.2}
+\contentsline {section}{\numberline {3.2}Multiple dimensions}{26}{section.3.2}
 \contentsline {section}{\numberline {3.3}Application to regression}{26}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Ridge regression}{26}{subsection.3.3.1}
-\contentsline {section}{\numberline {3.4}Stochastic gradient descent}{27}{section.3.4}
-\contentsline {chapter}{\numberline {4}Classification}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Classification}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}Linear classifiers}{30}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Linear classifiers: definition}{30}{subsection.4.2.1}
-\contentsline {section}{\numberline {4.3}Linear logistic classifiers}{32}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Linear logistic classifiers: definition}{33}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Learning linear logistic classifiers}{35}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Gradient descent for logistic regression}{37}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Convexity of the NLL Loss Function}{38}{subsection.4.4.1}
-\contentsline {section}{\numberline {4.5}Handling multiple classes}{39}{section.4.5}
-\contentsline {section}{\numberline {4.6}Prediction accuracy and validation}{40}{section.4.6}
-\contentsline {chapter}{\numberline {5}Feature representation}{41}{chapter.5}
-\contentsline {section}{\numberline {5.1}Gaining intuition about feature transformations}{41}{section.5.1}
-\contentsline {section}{\numberline {5.2}Systematic feature construction}{42}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Polynomial basis}{42}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Radial basis functions}{45}{subsection.5.2.2}
-\contentsline {section}{\numberline {5.3}Hand-constructing features for real domains}{46}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Discrete features}{46}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Text}{47}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Numeric values}{47}{subsection.5.3.3}
-\contentsline {chapter}{\numberline {6}Neural Networks}{49}{chapter.6}
-\contentsline {section}{\numberline {6.1}Basic element}{50}{section.6.1}
-\contentsline {section}{\numberline {6.2}Networks}{50}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Single layer}{51}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Many layers}{52}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Choices of activation function}{52}{section.6.3}
-\contentsline {section}{\numberline {6.4}Loss functions and activation functions}{54}{section.6.4}
-\contentsline {section}{\numberline {6.5}Error back-propagation}{54}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}First, suppose everything is one-dimensional}{54}{subsection.6.5.1}
-\contentsline {subsection}{\numberline {6.5.2}The general case}{55}{subsection.6.5.2}
-\contentsline {subsection}{\numberline {6.5.3}Derivations for the general case}{57}{subsection.6.5.3}
-\contentsline {subsection}{\numberline {6.5.4}Reflecting on backpropagation}{57}{subsection.6.5.4}
-\contentsline {section}{\numberline {6.6}Training}{58}{section.6.6}
-\contentsline {section}{\numberline {6.7}Optimizing neural network parameters}{59}{section.6.7}
-\contentsline {subsection}{\numberline {6.7.1}Batches}{59}{subsection.6.7.1}
-\contentsline {subsection}{\numberline {6.7.2}Adaptive step-size}{60}{subsection.6.7.2}
-\contentsline {section}{\numberline {6.8}Regularization}{61}{section.6.8}
-\contentsline {subsection}{\numberline {6.8.1}Methods related to ridge regression}{61}{subsection.6.8.1}
-\contentsline {subsection}{\numberline {6.8.2}Dropout}{61}{subsection.6.8.2}
-\contentsline {subsection}{\numberline {6.8.3}Batch normalization}{62}{subsection.6.8.3}
-\contentsline {chapter}{\numberline {7}Clustering}{63}{chapter.7}
-\contentsline {section}{\numberline {7.1}Clustering formalisms}{63}{section.7.1}
-\contentsline {section}{\numberline {7.2}The k-means formulation}{64}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}K-means algorithm}{64}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Using gradient descent to minimize k-means objective}{66}{subsection.7.2.2}
-\contentsline {subsection}{\numberline {7.2.3}Importance of initialization}{66}{subsection.7.2.3}
-\contentsline {subsection}{\numberline {7.2.4}Importance of k}{66}{subsection.7.2.4}
-\contentsline {subsection}{\numberline {7.2.5}k-means in feature space}{67}{subsection.7.2.5}
-\contentsline {section}{\numberline {7.3}How to evaluate clustering algorithms}{68}{section.7.3}
-\contentsline {chapter}{\numberline {8}Convolutional Neural Networks}{69}{chapter.8}
-\contentsline {section}{\numberline {8.1}Filters}{70}{section.8.1}
-\contentsline {section}{\numberline {8.2}Max pooling}{72}{section.8.2}
-\contentsline {section}{\numberline {8.3}Typical architecture}{73}{section.8.3}
-\contentsline {section}{\numberline {8.4}Backpropagation in a simple CNN}{74}{section.8.4}
-\contentsline {subsection}{\numberline {8.4.1}Weight update}{74}{subsection.8.4.1}
-\contentsline {subsection}{\numberline {8.4.2}Max pooling}{75}{subsection.8.4.2}
-\contentsline {chapter}{\numberline {9}Transformers}{76}{chapter.9}
-\contentsline {section}{\numberline {9.1}Vector embeddings and tokens}{76}{section.9.1}
-\contentsline {section}{\numberline {9.2}Query, key, value, and attention}{78}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Self Attention}{79}{subsection.9.2.1}
-\contentsline {section}{\numberline {9.3}Transformers}{80}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Learned embedding}{81}{subsection.9.3.1}
-\contentsline {subsection}{\numberline {9.3.2}Variations and training}{82}{subsection.9.3.2}
-\contentsline {chapter}{\numberline {10}Autoencoders}{84}{chapter.10}
-\contentsline {section}{\numberline {10.1}Autoencoder structure}{84}{section.10.1}
-\contentsline {section}{\numberline {10.2}Autoencoder Learning}{86}{section.10.2}
-\contentsline {section}{\numberline {10.3}Evaluating an autoencoder}{86}{section.10.3}
-\contentsline {section}{\numberline {10.4}Linear encoders and decoders}{86}{section.10.4}
-\contentsline {section}{\numberline {10.5}Advanced encoders and decoders}{86}{section.10.5}
-\contentsline {chapter}{\numberline {11}Markov Decision Processes}{88}{chapter.11}
-\contentsline {section}{\numberline {11.1}Definition and value functions}{88}{section.11.1}
-\contentsline {subsection}{\numberline {11.1.1}Finite-horizon value functions}{90}{subsection.11.1.1}
-\contentsline {subsection}{\numberline {11.1.2}Infinite-horizon value functions}{90}{subsection.11.1.2}
-\contentsline {section}{\numberline {11.2}Finding policies for MDPs}{92}{section.11.2}
-\contentsline {subsection}{\numberline {11.2.1}Finding optimal finite-horizon policies}{92}{subsection.11.2.1}
-\contentsline {subsection}{\numberline {11.2.2}Finding optimal infinite-horizon policies}{94}{subsection.11.2.2}
-\contentsline {chapter}{\numberline {12}Reinforcement learning}{96}{chapter.12}
-\contentsline {section}{\numberline {12.1}Reinforcement learning algorithms overview}{97}{section.12.1}
-\contentsline {section}{\numberline {12.2}Model-free methods}{97}{section.12.2}
-\contentsline {subsection}{\numberline {12.2.1}Q-learning}{97}{subsection.12.2.1}
-\contentsline {subsection}{\numberline {12.2.2}Function approximation: Deep Q learning}{100}{subsection.12.2.2}
-\contentsline {subsection}{\numberline {12.2.3}Fitted Q-learning}{101}{subsection.12.2.3}
-\contentsline {subsection}{\numberline {12.2.4}Policy gradient}{101}{subsection.12.2.4}
-\contentsline {section}{\numberline {12.3}Model-based RL}{102}{section.12.3}
-\contentsline {section}{\numberline {12.4}Bandit problems}{102}{section.12.4}
-\contentsline {chapter}{\numberline {13}Non-parametric methods}{104}{chapter.13}
-\contentsline {section}{\numberline {13.1}Nearest Neighbor}{105}{section.13.1}
-\contentsline {section}{\numberline {13.2}Tree Models}{106}{section.13.2}
-\contentsline {subsection}{\numberline {13.2.1}Regression}{107}{subsection.13.2.1}
-\contentsline {subsubsection}{\numberline {13.2.1.1}Building a tree}{108}{subsubsection.13.2.1.1}
-\contentsline {subsubsection}{\numberline {13.2.1.2}Pruning}{109}{subsubsection.13.2.1.2}
-\contentsline {subsection}{\numberline {13.2.2}Classification}{109}{subsection.13.2.2}
-\contentsline {subsection}{\numberline {13.2.3}Bagging}{111}{subsection.13.2.3}
-\contentsline {subsection}{\numberline {13.2.4}Random Forests}{111}{subsection.13.2.4}
-\contentsline {subsection}{\numberline {13.2.5}Tree variants and tradeoffs}{112}{subsection.13.2.5}
-\contentsline {chapter}{\numberline {A}Matrix derivative common cases}{113}{Appendix.1.A}
-\contentsline {section}{\numberline {A.1}The shapes of things}{113}{section.1.A.1}
-\contentsline {section}{\numberline {A.2}Some vector-by-vector identities}{114}{section.1.A.2}
-\contentsline {subsection}{\numberline {A.2.1}Some fundamental cases}{114}{subsection.1.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}Derivatives involving a constant matrix}{115}{subsection.1.A.2.2}
-\contentsline {subsection}{\numberline {A.2.3}Linearity of derivatives}{115}{subsection.1.A.2.3}
-\contentsline {subsection}{\numberline {A.2.4}Product rule (vector-valued numerator)}{116}{subsection.1.A.2.4}
-\contentsline {subsection}{\numberline {A.2.5}Chain rule}{116}{subsection.1.A.2.5}
-\contentsline {section}{\numberline {A.3}Some other identities}{116}{section.1.A.3}
-\contentsline {section}{\numberline {A.4}Derivation of gradient for linear regression}{117}{section.1.A.4}
-\contentsline {section}{\numberline {A.5}Matrix derivatives using Einstein summation}{117}{section.1.A.5}
-\contentsline {chapter}{\numberline {B}Optimizing Neural Networks}{119}{Appendix.1.B}
-\contentsline {subsection}{\numberline {B.0.1}Strategies towards adaptive step-size}{119}{subsection.1.B.0.1}
-\contentsline {subsubsection}{\numberline {B.0.1.1}Running averages}{119}{subsubsection.1.B.0.1.1}
-\contentsline {subsubsection}{\numberline {B.0.1.2}Momentum}{119}{subsubsection.1.B.0.1.2}
-\contentsline {subsubsection}{\numberline {B.0.1.3}Adadelta}{120}{subsubsection.1.B.0.1.3}
-\contentsline {subsubsection}{\numberline {B.0.1.4}Adam}{121}{subsubsection.1.B.0.1.4}
-\contentsline {subsection}{\numberline {B.0.2}Batch Normalization Details}{121}{subsection.1.B.0.2}
-\contentsline {chapter}{\numberline {C}Recurrent Neural Networks}{124}{Appendix.1.C}
-\contentsline {section}{\numberline {C.1}State machines}{124}{section.1.C.1}
-\contentsline {section}{\numberline {C.2}Recurrent neural networks}{126}{section.1.C.2}
-\contentsline {section}{\numberline {C.3}Sequence-to-sequence RNN}{127}{section.1.C.3}
-\contentsline {section}{\numberline {C.4}RNN as a language model}{127}{section.1.C.4}
-\contentsline {section}{\numberline {C.5}Back-propagation through time}{127}{section.1.C.5}
-\contentsline {section}{\numberline {C.6}Vanishing gradients and gating mechanisms}{131}{section.1.C.6}
-\contentsline {subsection}{\numberline {C.6.1}Simple gated recurrent networks}{132}{subsection.1.C.6.1}
-\contentsline {subsection}{\numberline {C.6.2}Long short-term memory}{132}{subsection.1.C.6.2}
-\contentsline {chapter}{\numberline {D}Supervised learning in a nutshell}{134}{Appendix.1.D}
-\contentsline {section}{\numberline {D.1}General case}{134}{section.1.D.1}
-\contentsline {subsection}{\numberline {D.1.1}Minimal problem specification}{134}{subsection.1.D.1.1}
-\contentsline {subsection}{\numberline {D.1.2}Evaluating a hypothesis}{134}{subsection.1.D.1.2}
-\contentsline {subsection}{\numberline {D.1.3}Evaluating a supervised learning algorithm}{135}{subsection.1.D.1.3}
-\contentsline {subsubsection}{\numberline {D.1.3.1}Using a validation set}{135}{subsubsection.1.D.1.3.1}
-\contentsline {subsubsection}{\numberline {D.1.3.2}Using multiple training/evaluation runs}{135}{subsubsection.1.D.1.3.2}
-\contentsline {subsubsection}{\numberline {D.1.3.3}Cross validation}{135}{subsubsection.1.D.1.3.3}
-\contentsline {subsection}{\numberline {D.1.4}Comparing supervised learning algorithms}{135}{subsection.1.D.1.4}
-\contentsline {subsection}{\numberline {D.1.5}Fielding a hypothesis}{135}{subsection.1.D.1.5}
-\contentsline {subsection}{\numberline {D.1.6}Learning algorithms as optimizers}{136}{subsection.1.D.1.6}
-\contentsline {subsection}{\numberline {D.1.7}Hyperparameters}{136}{subsection.1.D.1.7}
-\contentsline {section}{\numberline {D.2}Concrete case: linear regression}{136}{section.1.D.2}
-\contentsline {section}{\numberline {D.3}Concrete case: logistic regression}{137}{section.1.D.3}
-\contentsline {chapter}{Index}{139}{section*.223}
+\contentsline {subsection}{\numberline {3.3.1}Ridge regression}{27}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}Stochastic gradient descent}{28}{section.3.4}
+\contentsline {chapter}{\numberline {4}Classification}{30}{chapter.4}
+\contentsline {section}{\numberline {4.1}Classification}{30}{section.4.1}
+\contentsline {section}{\numberline {4.2}Linear classifiers}{31}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Linear classifiers: definition}{31}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}Linear logistic classifiers}{33}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Linear logistic classifiers: definition}{34}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Learning linear logistic classifiers}{37}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Gradient descent for logistic regression}{40}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Convexity of the NLL Loss Function}{41}{subsection.4.4.1}
+\contentsline {section}{\numberline {4.5}Handling multiple classes}{41}{section.4.5}
+\contentsline {section}{\numberline {4.6}Prediction accuracy and validation}{43}{section.4.6}
+\contentsline {chapter}{\numberline {5}Feature representation}{44}{chapter.5}
+\contentsline {section}{\numberline {5.1}Gaining intuition about feature transformations}{44}{section.5.1}
+\contentsline {section}{\numberline {5.2}Systematic feature construction}{45}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Polynomial basis}{45}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Radial basis functions}{48}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Hand-constructing features for real domains}{49}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Discrete features}{49}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Text}{50}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Numeric values}{50}{subsection.5.3.3}
+\contentsline {chapter}{\numberline {6}Neural Networks}{52}{chapter.6}
+\contentsline {section}{\numberline {6.1}Basic element}{53}{section.6.1}
+\contentsline {section}{\numberline {6.2}Networks}{53}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Single layer}{54}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Many layers}{55}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Choices of activation function}{55}{section.6.3}
+\contentsline {section}{\numberline {6.4}Loss functions and activation functions}{57}{section.6.4}
+\contentsline {section}{\numberline {6.5}Error back-propagation}{57}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}First, suppose everything is one-dimensional}{57}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}The general case}{59}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Derivations for the general case}{60}{subsection.6.5.3}
+\contentsline {subsection}{\numberline {6.5.4}Reflecting on backpropagation}{60}{subsection.6.5.4}
+\contentsline {section}{\numberline {6.6}Training}{61}{section.6.6}
+\contentsline {section}{\numberline {6.7}Optimizing neural network parameters}{62}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Batches}{62}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Adaptive step-size}{63}{subsection.6.7.2}
+\contentsline {section}{\numberline {6.8}Regularization}{64}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Methods related to ridge regression}{64}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Dropout}{64}{subsection.6.8.2}
+\contentsline {subsection}{\numberline {6.8.3}Batch normalization}{65}{subsection.6.8.3}
+\contentsline {chapter}{\numberline {7}Clustering}{66}{chapter.7}
+\contentsline {section}{\numberline {7.1}Clustering formalisms}{66}{section.7.1}
+\contentsline {section}{\numberline {7.2}The k-means formulation}{67}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}K-means algorithm}{67}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Using gradient descent to minimize k-means objective}{69}{subsection.7.2.2}
+\contentsline {subsection}{\numberline {7.2.3}Importance of initialization}{69}{subsection.7.2.3}
+\contentsline {subsection}{\numberline {7.2.4}Importance of k}{69}{subsection.7.2.4}
+\contentsline {subsection}{\numberline {7.2.5}k-means in feature space}{70}{subsection.7.2.5}
+\contentsline {section}{\numberline {7.3}How to evaluate clustering algorithms}{71}{section.7.3}
+\contentsline {chapter}{\numberline {8}Convolutional Neural Networks}{72}{chapter.8}
+\contentsline {section}{\numberline {8.1}Filters}{73}{section.8.1}
+\contentsline {section}{\numberline {8.2}Max pooling}{75}{section.8.2}
+\contentsline {section}{\numberline {8.3}Typical architecture}{76}{section.8.3}
+\contentsline {section}{\numberline {8.4}Backpropagation in a simple CNN}{77}{section.8.4}
+\contentsline {subsection}{\numberline {8.4.1}Weight update}{77}{subsection.8.4.1}
+\contentsline {subsection}{\numberline {8.4.2}Max pooling}{78}{subsection.8.4.2}
+\contentsline {chapter}{\numberline {9}Transformers}{79}{chapter.9}
+\contentsline {section}{\numberline {9.1}Vector embeddings and tokens}{79}{section.9.1}
+\contentsline {section}{\numberline {9.2}Query, key, value, and attention}{81}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Self Attention}{82}{subsection.9.2.1}
+\contentsline {section}{\numberline {9.3}Transformers}{83}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Learned embedding}{84}{subsection.9.3.1}
+\contentsline {subsection}{\numberline {9.3.2}Variations and training}{85}{subsection.9.3.2}
+\contentsline {chapter}{\numberline {10}Autoencoders}{87}{chapter.10}
+\contentsline {section}{\numberline {10.1}Autoencoder structure}{87}{section.10.1}
+\contentsline {section}{\numberline {10.2}Autoencoder Learning}{89}{section.10.2}
+\contentsline {section}{\numberline {10.3}Evaluating an autoencoder}{89}{section.10.3}
+\contentsline {section}{\numberline {10.4}Linear encoders and decoders}{89}{section.10.4}
+\contentsline {section}{\numberline {10.5}Advanced encoders and decoders}{89}{section.10.5}
+\contentsline {chapter}{\numberline {11}Markov Decision Processes}{91}{chapter.11}
+\contentsline {section}{\numberline {11.1}Definition and value functions}{91}{section.11.1}
+\contentsline {subsection}{\numberline {11.1.1}Finite-horizon value functions}{93}{subsection.11.1.1}
+\contentsline {subsection}{\numberline {11.1.2}Infinite-horizon value functions}{93}{subsection.11.1.2}
+\contentsline {section}{\numberline {11.2}Finding policies for MDPs}{95}{section.11.2}
+\contentsline {subsection}{\numberline {11.2.1}Finding optimal finite-horizon policies}{95}{subsection.11.2.1}
+\contentsline {subsection}{\numberline {11.2.2}Finding optimal infinite-horizon policies}{97}{subsection.11.2.2}
+\contentsline {chapter}{\numberline {12}Reinforcement learning}{99}{chapter.12}
+\contentsline {section}{\numberline {12.1}Reinforcement learning algorithms overview}{100}{section.12.1}
+\contentsline {section}{\numberline {12.2}Model-free methods}{100}{section.12.2}
+\contentsline {subsection}{\numberline {12.2.1}Q-learning}{100}{subsection.12.2.1}
+\contentsline {subsection}{\numberline {12.2.2}Function approximation: Deep Q learning}{103}{subsection.12.2.2}
+\contentsline {subsection}{\numberline {12.2.3}Fitted Q-learning}{104}{subsection.12.2.3}
+\contentsline {subsection}{\numberline {12.2.4}Policy gradient}{104}{subsection.12.2.4}
+\contentsline {section}{\numberline {12.3}Model-based RL}{105}{section.12.3}
+\contentsline {section}{\numberline {12.4}Bandit problems}{105}{section.12.4}
+\contentsline {chapter}{\numberline {13}Non-parametric methods}{107}{chapter.13}
+\contentsline {section}{\numberline {13.1}Nearest Neighbor}{108}{section.13.1}
+\contentsline {section}{\numberline {13.2}Tree Models}{109}{section.13.2}
+\contentsline {subsection}{\numberline {13.2.1}Regression}{110}{subsection.13.2.1}
+\contentsline {subsubsection}{\numberline {13.2.1.1}Building a tree}{111}{subsubsection.13.2.1.1}
+\contentsline {subsubsection}{\numberline {13.2.1.2}Pruning}{112}{subsubsection.13.2.1.2}
+\contentsline {subsection}{\numberline {13.2.2}Classification}{112}{subsection.13.2.2}
+\contentsline {subsection}{\numberline {13.2.3}Bagging}{114}{subsection.13.2.3}
+\contentsline {subsection}{\numberline {13.2.4}Random Forests}{114}{subsection.13.2.4}
+\contentsline {subsection}{\numberline {13.2.5}Tree variants and tradeoffs}{115}{subsection.13.2.5}
+\contentsline {chapter}{\numberline {A}Matrix derivative common cases}{116}{Appendix.1.A}
+\contentsline {section}{\numberline {A.1}The shapes of things}{116}{section.1.A.1}
+\contentsline {section}{\numberline {A.2}Some vector-by-vector identities}{117}{section.1.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Some fundamental cases}{117}{subsection.1.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}Derivatives involving a constant matrix}{118}{subsection.1.A.2.2}
+\contentsline {subsection}{\numberline {A.2.3}Linearity of derivatives}{118}{subsection.1.A.2.3}
+\contentsline {subsection}{\numberline {A.2.4}Product rule (vector-valued numerator)}{119}{subsection.1.A.2.4}
+\contentsline {subsection}{\numberline {A.2.5}Chain rule}{119}{subsection.1.A.2.5}
+\contentsline {section}{\numberline {A.3}Some other identities}{119}{section.1.A.3}
+\contentsline {section}{\numberline {A.4}Derivation of gradient for linear regression}{120}{section.1.A.4}
+\contentsline {section}{\numberline {A.5}Matrix derivatives using Einstein summation}{120}{section.1.A.5}
+\contentsline {chapter}{\numberline {B}Optimizing Neural Networks}{122}{Appendix.1.B}
+\contentsline {subsection}{\numberline {B.0.1}Strategies towards adaptive step-size}{122}{subsection.1.B.0.1}
+\contentsline {subsubsection}{\numberline {B.0.1.1}Running averages}{122}{subsubsection.1.B.0.1.1}
+\contentsline {subsubsection}{\numberline {B.0.1.2}Momentum}{122}{subsubsection.1.B.0.1.2}
+\contentsline {subsubsection}{\numberline {B.0.1.3}Adadelta}{123}{subsubsection.1.B.0.1.3}
+\contentsline {subsubsection}{\numberline {B.0.1.4}Adam}{124}{subsubsection.1.B.0.1.4}
+\contentsline {subsection}{\numberline {B.0.2}Batch Normalization Details}{124}{subsection.1.B.0.2}
+\contentsline {chapter}{\numberline {C}Recurrent Neural Networks}{127}{Appendix.1.C}
+\contentsline {section}{\numberline {C.1}State machines}{127}{section.1.C.1}
+\contentsline {section}{\numberline {C.2}Recurrent neural networks}{129}{section.1.C.2}
+\contentsline {section}{\numberline {C.3}Sequence-to-sequence RNN}{130}{section.1.C.3}
+\contentsline {section}{\numberline {C.4}RNN as a language model}{130}{section.1.C.4}
+\contentsline {section}{\numberline {C.5}Back-propagation through time}{130}{section.1.C.5}
+\contentsline {section}{\numberline {C.6}Vanishing gradients and gating mechanisms}{134}{section.1.C.6}
+\contentsline {subsection}{\numberline {C.6.1}Simple gated recurrent networks}{135}{subsection.1.C.6.1}
+\contentsline {subsection}{\numberline {C.6.2}Long short-term memory}{135}{subsection.1.C.6.2}
+\contentsline {chapter}{\numberline {D}Supervised learning in a nutshell}{137}{Appendix.1.D}
+\contentsline {section}{\numberline {D.1}General case}{137}{section.1.D.1}
+\contentsline {subsection}{\numberline {D.1.1}Minimal problem specification}{137}{subsection.1.D.1.1}
+\contentsline {subsection}{\numberline {D.1.2}Evaluating a hypothesis}{137}{subsection.1.D.1.2}
+\contentsline {subsection}{\numberline {D.1.3}Evaluating a supervised learning algorithm}{138}{subsection.1.D.1.3}
+\contentsline {subsubsection}{\numberline {D.1.3.1}Using a validation set}{138}{subsubsection.1.D.1.3.1}
+\contentsline {subsubsection}{\numberline {D.1.3.2}Using multiple training/evaluation runs}{138}{subsubsection.1.D.1.3.2}
+\contentsline {subsubsection}{\numberline {D.1.3.3}Cross validation}{138}{subsubsection.1.D.1.3.3}
+\contentsline {subsection}{\numberline {D.1.4}Comparing supervised learning algorithms}{138}{subsection.1.D.1.4}
+\contentsline {subsection}{\numberline {D.1.5}Fielding a hypothesis}{138}{subsection.1.D.1.5}
+\contentsline {subsection}{\numberline {D.1.6}Learning algorithms as optimizers}{139}{subsection.1.D.1.6}
+\contentsline {subsection}{\numberline {D.1.7}Hyperparameters}{139}{subsection.1.D.1.7}
+\contentsline {section}{\numberline {D.2}Concrete case: linear regression}{139}{section.1.D.2}
+\contentsline {section}{\numberline {D.3}Concrete case: logistic regression}{140}{section.1.D.3}
+\contentsline {chapter}{Index}{142}{section*.224}

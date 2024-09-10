@@ -20,91 +20,91 @@
     {
         "cnum": "4",
         "title": "Classification",
-        "page": 30,
+        "page": 31,
         "filename": "chapter_pdfs/chapter_Classification.pdf"
     },
     {
         "cnum": "5",
         "title": "Feature representation",
-        "page": 42,
+        "page": 45,
         "filename": "chapter_pdfs/chapter_Feature_representation.pdf"
     },
     {
         "cnum": "6",
         "title": "Neural Networks",
-        "page": 50,
+        "page": 53,
         "filename": "chapter_pdfs/chapter_Neural_Networks.pdf"
     },
     {
         "cnum": "7",
         "title": "Clustering",
-        "page": 64,
+        "page": 67,
         "filename": "chapter_pdfs/chapter_Clustering.pdf"
     },
     {
         "cnum": "8",
         "title": "Convolutional Neural Networks",
-        "page": 70,
+        "page": 73,
         "filename": "chapter_pdfs/chapter_Convolutional_Neural_Networks.pdf"
     },
     {
         "cnum": "9",
         "title": "Transformers",
-        "page": 77,
+        "page": 80,
         "filename": "chapter_pdfs/chapter_Transformers.pdf"
     },
     {
         "cnum": "10",
         "title": "Autoencoders",
-        "page": 85,
+        "page": 88,
         "filename": "chapter_pdfs/chapter_Autoencoders.pdf"
     },
     {
         "cnum": "11",
         "title": "Markov Decision Processes",
-        "page": 89,
+        "page": 92,
         "filename": "chapter_pdfs/chapter_Markov_Decision_Processes.pdf"
     },
     {
         "cnum": "12",
         "title": "Reinforcement learning",
-        "page": 97,
+        "page": 100,
         "filename": "chapter_pdfs/chapter_Reinforcement_learning.pdf"
     },
     {
         "cnum": "13",
         "title": "Non-parametric methods",
-        "page": 105,
+        "page": 108,
         "filename": "chapter_pdfs/chapter_Non-parametric_methods.pdf"
     },
     {
         "cnum": "A",
         "title": "Matrix derivative common cases",
-        "page": 114,
+        "page": 117,
         "filename": "chapter_pdfs/chapter_Matrix_derivative_common_cases.pdf"
     },
     {
         "cnum": "B",
         "title": "Optimizing Neural Networks",
-        "page": 120,
+        "page": 123,
         "filename": "chapter_pdfs/chapter_Optimizing_Neural_Networks.pdf"
     },
     {
         "cnum": "C",
         "title": "Recurrent Neural Networks",
-        "page": 125,
+        "page": 128,
         "filename": "chapter_pdfs/chapter_Recurrent_Neural_Networks.pdf"
     },
     {
         "cnum": "D",
         "title": "Supervised learning in a nutshell",
-        "page": 135,
+        "page": 138,
         "filename": "chapter_pdfs/chapter_Supervised_learning_in_a_nutshell.pdf"
     },
     {
         "cnum": "Index",
         "title": "Index",
-        "page": 140,
+        "page": 143,
         "filename": "chapter_pdfs/chapter_Index.pdf"
     }
 ]
