@@ -564,12 +564,18 @@ Whew!  So the solution is:
   \theta_{\text{ridge}} = \left(\Xt^T\Xt + n\lambda I\right)^{-1}\Xt^T\Yt
   \label{eq:ridge_regression_solution}
 \end{equation}
-and the term $\left(\Xt^T\Xt + n\lambda I\right)$
-\note{This is called ``ridge'' regression because we are adding a
-  ``ridge'' of $n\lambda$ values along the diagonal of the matrix
-  before inverting it.}
-becomes invertible when $\lambda > 0$.
 
+Now, why is the term $\left(\Xt^T\Xt + n\lambda I\right)$\note{This is called 
+``ridge'' regression because we are adding a ``ridge'' of $n\lambda$ 
+values along the diagonal of the matrix before inverting it.} invertible? 
+Explaining this requires some linear algebra. The matrix $\Xt^T\Xt$ is positive 
+semidefinite, which implies that its eigenvalues $\{\gamma_i\}_i$ are greater
+than or equal to 0. The matrix $\Xt^T\Xt+n\lambda I$ has eigenvalues 
+$\{\gamma_i+n\lambda\}_i$ which are guaranteed to be strictly positive since
+$\lambda>0$. Recalling that the determinant of a matrix is simply the product of its eigenvectors, 
+we get that $\det(\Xt^T\Xt + n\lambda I)>0$ and conclude that $\Xt^T\Xt + n\lambda I$ is invertible.
+
+\question{Why is $\Xt^T\Xt$ positive semidefinite?}
 \question{What is the dimension of $I$ in the equation above?}
 
 
