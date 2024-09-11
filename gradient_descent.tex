@@ -8,9 +8,9 @@ find the optimal $\Theta^* = \argmin{\Theta} J(\Theta)$, particularly
 when the objective function is not amenable to analytical
 optimization.  For example, this can be the case when $J(\Theta)$
 involves a more complex loss function, or more general forms of
-regularization.  It can also be the case when there is simply too much
-data for it to be computationally feasible to analytically invert the
-required matrices.
+regularization.  
+It can also be the case when there are simply too many
+parameters to learn for it to be computationally feasible.
 
 There is an
 enormous and fascinating literature on the mathematical and algorithmic
@@ -66,19 +66,19 @@ magnitude of the gradient itself too.
   \li \Repeat
   \li   $t \gets t+1$
   \li   $\Theta^{(t)} = \Theta^{(t-1)} - \eta \, f'(\Theta^{(t-1)})$
-  \li \Until $|f(\Theta^{(t)}) - f(\Theta^{(t-1)})| < \epsilon$
+  \li \Until $|f'(\Theta^{(t)})| < \epsilon$
   \li \Return $\Theta^{(t)}$
 \end{codebox}
-Note that this algorithm terminates when the change in the function $f$
+Note that this algorithm terminates when the derivative of the function $f$
 is sufficiently small. There are many other reasonable ways to decide
 to terminate, including\index{gradient descent!stopping criteria}:
 \begin{itemize}
-  \item Stop after a fixed number of iterations $T$, i.e.,\ when $t = T$.
+  \item Stop after a fixed number of iterations $T$, i.e.,\ when $t = T$. Practically, this is the most common choice.
   \item Stop when the change in the value of the parameter
         $\Theta$ is sufficiently small, i.e.,\ when $\left| \Theta^{(t)} - \Theta^{(t-1)} \right|
           <\epsilon$.
-  \item Stop when the derivative $f'$ at the latest value of $\Theta$ is sufficiently small, i.e.,\ when $\left|f'(\Theta^{(t)}) \right|
-          <\epsilon$.
+  % \item Stop when the derivative $f'$ at the latest value of $\Theta$ is sufficiently small, i.e.,\ when $\left|f'(\Theta^{(t)}) \right|
+  %         <\epsilon$.
 \end{itemize}
 
 \question{Consider all of the potential stopping criteria for $\proc{1D-Gradient-Descent}$, both in the algorithm as it appears
@@ -89,17 +89,17 @@ to terminate, including\index{gradient descent!stopping criteria}:
 \begin{theorem}
   Choose any small distance $\tilde{\epsilon} > 0$.
   If we assume that $f$ has a minimum, is sufficiently ``smooth'' and \anchorednote{convex,}{A function is convex if the line segment between any two points on the graph of the function lies above or on the graph.}
-  and if the step size $\eta$ is sufficiently small, gradient descent will reach a point within $\tilde{\epsilon}$ of a global optimum point $\Theta$.\index{gradient descent!convergence}
+  and if the learning rate $\eta$ is sufficiently small, gradient descent will reach a point within $\tilde{\epsilon}$ of a global optimum point $\Theta$.\index{gradient descent!convergence}
 
   % Previous theorem:
   %  for any desired accuracy $\epsilon$, there is some
-  %  step size $\eta$ such that gradient
+  %  learning rate $\eta$ such that gradient
   %  descent will converge to within $\epsilon$ of the optimal $\Theta$.
   %
   % Previous theorem has bug: doesn't quite hold for horizontal line; also,
   % it won't be epsilon away; it'll get arbitrarily close with the distances going to 0
 \end{theorem}
-However, we must be careful when choosing the step size to prevent
+However, we must be careful when choosing the learning rate to prevent
 slow convergence, non-converging oscillation around the minimum, or divergence.
 
 The following plot illustrates a convex function $f(x) = (x - 2)^2$,
@@ -127,17 +127,22 @@ $1/2$.  It is very well-behaved!
   very big $\eta$?}
 
 If $f$ is non-convex, where gradient descent converges to depends on
-$x_{\it init}$.  First, let's establish some
-definitions. Suppose we have analytically defined derivatives for $f$.
-Then we say that $f$ has a {\em local minimum point} or {\em local optimum point}
-at $x$ if
-$f'(x) = 0$ and $f''(x)
-  > 0$, and we say that $f(x)$ is a {\em local minimum value} of $f$.
-More generally, $x$ is a local minimum point of $f$ if $f(x)$ is at
-least as low as $f(x')$ for all points $x'$ in some small area around $x$.
-We say that $f$ has a {\em global
-    minimum point} at $x$ if $f(x)$ is at least as low as $f(x')$ for every other input $x'$.
-And then we call $f(x)$ a {\em global minimum value}.
+$x_{\it init}$.  First, let's establish some definitions. 
+Let $f$ be a real-valued function defined over some domain $D$.
+A point $x_0 \in D$ is called a {\em global minimum point} of $f$ if $f(x_0) \leq f(x)$
+for all other $x \in D$. 
+A point $x_0 \in D$ is instead called a {\em local minimum point} of a function $f$ if there exists
+some constant $\epsilon > 0$ such that for all $x$ within the interval defined by $d(x,x_0) < \epsilon,$
+$f(x_0) \leq f(x)$, where $d$ is some distance metric, e.g., $d(x,x_0) = || x - x_0 ||.$
+% Suppose we have well defined first and second derivatives for $f$.
+% Then we say that $f$ has a {\em local minimum point} or {\em local optimum point}
+% at $x$ if $f'(x) = 0$ and $f''(x)
+%   > 0$, and we say that $f(x)$ is a {\em local minimum value} of $f$.
+% % More generally, $x$ is a local minimum point of $f$ if $f(x)$ is at
+% % least as low as $f(x')$ for all points $x'$ in some small area around $x$.
+% We say that $f$ has a {\em global
+%     minimum point} at $x$ if $f(x)$ is at least as low as $f(x')$ for every other input $x'$.
+% And then we call $f(x)$ a {\em global minimum value}.
 A global minimum point is also a local minimum point, but a local
 minimum point does not have to be a global minimum point.
 
@@ -145,16 +150,16 @@ If $f$ is non-convex (and sufficiently smooth),
 % AM_S2024 begin
 one expects that
 % AM_S2024 end
-gradient descent (run long enough with small enough step size) will get very close to a point at which the gradient is zero, though
+gradient descent (run long enough with small enough learning rate) will get very close to a point at which the gradient is zero, though
 we cannot guarantee that it will converge to a global minimum point.
 % \note{There are many "gaps" between a point having zero gradient and a global minimum. For example, a local maximum, or a so-called saddle point would be a point at which gradient is zero.}
 
 % AM_S2024 begin
 There are two notable exceptions to this common sense expectation: First, gradient descent can get stagnated while approaching a point $x$ which is not a local minimum or maximum,
 but satisfies $f'(x)=0$. For example, for $f(x)=x^3$, starting gradient descent from the
-initial guess $x_{\it init}=1$, while using step size $\eta<1/3$
+initial guess $x_{\it init}=1$, while using learning rate $\eta<1/3$
 will lead to $x^{(k)}$ converging to zero as $k\to\infty$. Second, there are functions (even convex ones) with no minimum points,
-like $f(x)=\exp(-x)$, for which gradient descent with a positive step size converges to $+\infty$.
+like $f(x)=\exp(-x)$, for which gradient descent with a positive learning rate converges to $+\infty$.
 % AM_S2024 end
 
 The plot below shows two different $x_{\it init}$, and how gradient descent
@@ -429,8 +434,8 @@ traditional gradient descent. Here we've just chosen
 to stop after a fixed number of iterations $T$.
 
 For {\sc sgd} to converge to a local optimum point as $t$ increases, the
-step size has to decrease as a function of time. The next result shows one
-step size sequence that works.
+learning rate has to decrease as a function of time. The next result shows one
+learning rate sequence that works.
 
 \begin{theorem}
   If $f$ is convex, and $\eta(t)$ is a sequence satisfying
@@ -446,10 +451,10 @@ step size sequence that works.
 Why these two conditions?  The intuition is that the first condition,
 on $\sum \eta(t)$, is needed to allow for the possibility of an
 unbounded potential range of exploration, while the second condition,
-on $\sum\eta(t)^2$, ensures that the step sizes get smaller and
+on $\sum\eta(t)^2$, ensures that the learning rates get smaller and
 smaller as $t$ increases.
 
-One ``legal'' way of setting the step size is to make $\eta(t) = 1/t$ but
+One ``legal'' way of setting the learning rate is to make $\eta(t) = 1/t$ but
 people often use rules that decrease more slowly, and so don't
 strictly satisfy the criteria for convergence.
 \question{
