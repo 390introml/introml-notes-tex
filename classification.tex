@@ -36,7 +36,7 @@ are given a training data set of the form
 \[ \data_n = \left\{\left(\ex{x}{1}, \ex{y}{1}\right), \dots, \left(\ex{x}{n},
   \ex{y}{n}\right)\right\} \;\;.\]
 We will assume that each $\ex{x}{i}$ is a $d \times 1$ {\em column
-    vector}. The intended meaning of this data is that, when given an input
+    vector}. The intended use of this data is that, when given an input
 $\ex{x}{i}$, the learned hypothesis should generate output
 $\ex{y}{i}$.
 
@@ -144,6 +144,8 @@ For example, in two dimensions ($d=2$) the separator has dimension 1,
 which means it is a line, and
 the two components of $\theta = [\theta_1, \theta_2]^T$ give the orientation
 of the separator, as illustrated in the following example.
+
+\subsection{Linear Classifiers: Examples}
 
 %%%%%%%%%%%%%%%%%%%%
 
@@ -456,6 +458,8 @@ $z$ the output is in $(0, 1)$.
   interval $(0, 1)$.  Why can't it equal 0 or equal 1?  For what value
   of $z$ does $\sigma(z) = 0.5$?}
 
+\subsection{Linear Logistic Classifier: Examples}
+
 What does an LLC look like?   Let's consider the
 simple case where $d = 1$, so our input points simply lie along the
 $x$ axis.  Classifiers in this case have dimension $0$, meaning that
@@ -544,8 +548,8 @@ function?  We start by changing our interpretation of the output to be
   {\em the probability that the input should map to output value 1} (we
 might also say that this is the probability that the input is in class 1 or
 that the input is `positive.')
-\question{If $h(x)$ is the probability that $x$ belongs to class +1,
-  what is the probability that $x$ belongs to the class -1? Assuming there are only these two classes.}
+\question{If $h(x)$ is the probability that $x$ belongs to class $+1$,
+  what is the probability that $x$ belongs to the class $-1$, assuming there are only these two classes?}
 
 Intuitively, we would like to have
   {\em low loss if we assign a high probability to the correct class.}
@@ -591,7 +595,7 @@ maximize its log, which is the following:
   (1 - \ex{y}{i})\log(1 - \ex{g}{i})\right)\;\;.
 \end{equation*}
 Finally, we can turn the maximization problem above into a minimization problem by taking the negative
-of the above expression, and write in terms of minimizing a loss
+of the above expression, and writing in terms of minimizing a loss
 \begin{equation*}
   \sum_{i = 1}^n \mathcal{L}_\text{nll}(\ex{g}{i}, \ex{y}{i})
 \end{equation*}
@@ -803,8 +807,7 @@ $\frac{\partial J_\text{lr}}{\partial \theta_0}$ will be a scalar since
 we have separated $\theta_0$ from $\theta$ here.
 \question{Convince yourself that the dimensions of all these
   quantities are correct, under the assumption that $\theta$ is $d
-    \times 1$. How does $d$ relate to $m$ as discussed for $\Theta$ in the
-  previous section?
+    \times 1$. 
 }
 
 \question{Compute $\nabla_\theta \norm{\theta}^2$ by finding the
