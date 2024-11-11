@@ -44,67 +44,67 @@
     {
         "cnum": "8",
         "title": "Convolutional Neural Networks",
-        "page": 71,
+        "page": 72,
         "filename": "chapter_pdfs/chapter_Convolutional_Neural_Networks.pdf"
     },
     {
         "cnum": "9",
         "title": "Transformers",
-        "page": 78,
+        "page": 79,
         "filename": "chapter_pdfs/chapter_Transformers.pdf"
     },
     {
         "cnum": "10",
         "title": "Autoencoders",
-        "page": 86,
+        "page": 87,
         "filename": "chapter_pdfs/chapter_Autoencoders.pdf"
     },
     {
         "cnum": "11",
         "title": "Markov Decision Processes",
-        "page": 90,
+        "page": 91,
         "filename": "chapter_pdfs/chapter_Markov_Decision_Processes.pdf"
     },
     {
         "cnum": "12",
         "title": "Reinforcement learning",
-        "page": 98,
+        "page": 99,
         "filename": "chapter_pdfs/chapter_Reinforcement_learning.pdf"
     },
     {
         "cnum": "13",
         "title": "Non-parametric methods",
-        "page": 106,
+        "page": 107,
         "filename": "chapter_pdfs/chapter_Non-parametric_methods.pdf"
     },
     {
         "cnum": "A",
         "title": "Matrix derivative common cases",
-        "page": 115,
+        "page": 116,
         "filename": "chapter_pdfs/chapter_Matrix_derivative_common_cases.pdf"
     },
     {
         "cnum": "B",
         "title": "Optimizing Neural Networks",
-        "page": 121,
+        "page": 122,
         "filename": "chapter_pdfs/chapter_Optimizing_Neural_Networks.pdf"
     },
     {
         "cnum": "C",
         "title": "Recurrent Neural Networks",
-        "page": 126,
+        "page": 127,
         "filename": "chapter_pdfs/chapter_Recurrent_Neural_Networks.pdf"
     },
     {
         "cnum": "D",
         "title": "Supervised learning in a nutshell",
-        "page": 136,
+        "page": 137,
         "filename": "chapter_pdfs/chapter_Supervised_learning_in_a_nutshell.pdf"
     },
     {
         "cnum": "Index",
         "title": "Index",
-        "page": 141,
+        "page": 142,
         "filename": "chapter_pdfs/chapter_Index.pdf"
     }
 ]
