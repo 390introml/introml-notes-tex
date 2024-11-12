@@ -118,14 +118,17 @@ In this class, we assume the rewards are deterministic functions. Further, in th
 
 
 
-A {\it{policy}}\index{policy} is a function $\pi: \mathcal S \rightarrow \mathcal A$
+A {\it{policy}}\index{policy} is a function $\pi$
 that specifies what action to take in each state.  The policy is what
 we will want to learn; it is akin to the strategy that a player
 employs to win a given game.  Below, we take just the initial steps
 towards this eventual goal.  We describe how to evaluate how good a
-policy is, first in the {\em finite horizon}  case
+policy is, first in the {\em finite horizon} case
 (Section~\ref{sec-mdp_finite_horizon}) when the total number of
-transition steps is finite.  Then we consider the {\em infinite horizon}
+transition steps is finite.  In the finite horizon case, we typically denote
+the policy as $\pi_h(s)$, where $h\in\mathbb N$ is a non-negative integer
+denoting the number of steps remaining and $s \in \mathcal S$ is the current
+state. Then we consider the {\em infinite horizon}
 case (Section~\ref{sec-mdp_infinite_horizon}), when you
 don't know when the game will be over.
 
