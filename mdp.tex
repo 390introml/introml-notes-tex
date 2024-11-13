@@ -241,7 +241,7 @@ where $R_t$ is the reward received at time $t$.
   (deterministic) actions dictated by policy $\pi.$
 \end{examplebox}
 
-Now, for the infinite-horizon case, we select a discount factor $0 < \gamma < 1$,
+Now, for the infinite-horizon case, we select a discount factor $0 \leq \gamma \leq 1$,
 and evaluate a policy based on its expected {\it{infinite horizon discounted value}}:
 \begin{equation}
   \mathbb{E}\left[\sum_{t = 0}^{\infty}\gamma^tR_t \mid \pi, s_0\right]
