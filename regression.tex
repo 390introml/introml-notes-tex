@@ -2,7 +2,7 @@
 \label{chap-regression}
 
 {\em Regression}\note{``Regression,'' in common parlance, means moving
-  backwards.  But this is forward progress!}\ is an important % needs escaped space after note
+  backwards.  But this is forward progress!} is an important % needs escaped space after note; no, it didn't! Just a space.
 machine-learning problem that provides a good starting point for
 diving deeply into the field.
 
@@ -41,10 +41,11 @@ like height, stock value, etc., rather than to divide the inputs into
 discrete categories.
 
 What makes a hypothesis useful? That it works well on {\em new} data;
-that is, that it makes good predictions on\anchorednote{examples it hasn't
-  seen.}{My favorite analogy is to problem sets.  We evaluate a
+that is, that it makes good predictions on examples it hasn't
+  seen.\note{My favorite analogy is to problem sets.  We evaluate a
   student's ability to {\em generalize} by putting questions on
-  the exam that were not on the homework (training set).}
+  the exam that were not on the homework (training set).} 
+  % why was this \anchorednote rather than \note?
 But we don't know exactly what data this hypothesis might be tested on
 when we use it in the real world. So, we have to {\em{assume}} a
 connection between the training data and testing data -- typically, the assumption is that
@@ -67,9 +68,9 @@ but it isn't the quantity that we {\em most} care about. What we most care about
 \begin{eqnarray*}
   \mathcal{E}(h) = \frac{1}{n'}\sum_{i = n + 1}^{n + n'}
   \mathcal{L}(h(\ex{x}{i}), \ex{y}{i})
-\end{eqnarray*}\note{It might be worthwhile to stare at the two errors and think about what's the difference. For example, notice how $\Theta$ is no long a variable in the testing error? this is because in evaluating the testing error, the parameters will have been "picked"/"fixed" already.}
+\end{eqnarray*}
 on $n'$ new examples that were not used in the process of finding the
-hypothesis.
+hypothesis.\note{It might be worthwhile to stare at the two errors and think about what's the difference. For example, notice how $\Theta$ is no long a variable in the testing error? this is because in evaluating the testing error, the parameters will have been "picked"/"fixed" already.}
 
 For now, we will try to find a hypothesis with small training error
 (later, with some added criteria) and try to make some design choices
@@ -103,7 +104,7 @@ the data $\data$.
 
 The objective function describes how we feel about
 possible hypotheses $\Theta$: we will generally look for values for
-parameters $\Theta$ that minimize the objective function:
+parameters $\Theta$ that minimize the objective function:%
 \note{You can think about $\Theta^*$ here as ``the theta that
   minimizes $J$'': $\argmin{x} f(x)$
   means the value of $x$ for which $f(x)$ is the smallest.  Sometimes
@@ -438,8 +439,8 @@ by much.
 
 For example, consider what happens when $d=2,$ and $x_2$ is highly
 correlated with $x_1$, meaning that the data look like a line, as
-shown in the left panel of the figure below.  Thus, there isn't a \anchorednote{unique best hyperplane}{Sometimes there's technically a
-  unique best hyperplane, but just because of noise.}.  Such
+shown in the left panel of the figure below.  Thus, there isn't a unique best hyperplane.\note{Sometimes there's technically a
+  unique best hyperplane, but just because of noise.}  Such
 correlations happen often in real-life data, because of underlying
 common causes; for example, across a population, the height of people
 may depend on both age and amount of food intake in the same way.
@@ -487,7 +488,7 @@ and note the range of the $y$ values---the slope is huge!):
 A common strategy for specifying a \emph{regularizer} is to use the form
 \[ R(\Theta) = \norm{\Theta - \Theta_{\it prior}}^2 \]
 when we have some idea in advance that $\Theta$ ought to be near some
-value $\Theta_{\it prior}$.
+value $\Theta_{\it prior}$.%
 \note{Learn about Bayesian methods in machine learning to see the theory behind this and cool results!}
 
 Here, the notion of distance is quantified by squaring the $l_2$ \textit{norm} of
@@ -601,11 +602,9 @@ algorithm used to produce hypotheses, as described below.
 \subsection{Evaluating hypotheses}
 
 The performance of a given hypothesis $h$ may be evaluated by
-measuring {\em test error} on data that was not used to
-%
-\anchorednote{train it.}{It's a bit funny to interpret the analytical
-  formulas given above for $\theta$ as ``training,'' but later when we employ more statistical methods
-  ``training'' will be a meaningful concept.}
+measuring {\em test error} on data that was not used to train it.
+\note{It's a bit funny to interpret the analytical
+  formulas given above for $\theta$ as ``training,'' but later when we employ more statistical methods, ``training'' will be a meaningful concept.}
 %
 Given a training set $\data_n,$ a regression hypothesis $h$, and if we choose squared loss, we can define the OLS {\em{training error}} of $h$ to be the mean square error between its predictions and the expected outputs:
 \begin{eqnarray*}

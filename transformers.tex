@@ -208,7 +208,7 @@ In other words, the conditional probability distribution $p(k | q)$ gives the ``
 \end{eqnarray}
 is the ``attention output.''
 
-The meaning of this weighted average value may be ambiguous when the values are just words.  However, the attention output really becomes meaningful when the value are projected in some semantic embedding space (and such projection are typically done in transformers via learned embedding weights).
+The meaning of this weighted average value may be ambiguous when the values are just words.  However, the attention output really becomes meaningful when the values are projected in some semantic embedding space (and such projections are typically done in transformers via learned embedding weights).
 
 The same weighted-sum idea generalizes to multiple query, key, and values. In particular, suppose there are $n_q$ number of queries, $n_k$ number of keys (and therefore $n_k$ number of values), one can compute an attention matrix
 
@@ -285,7 +285,7 @@ Self-attention is an attention mechanism where the keys, values, and queries are
 
 At a very high level, typical transformer with self-attention layers maps $\mathbb{R}^{n\times d} \longrightarrow \mathbb{R}^{n\times d}$. In particular, the transformer takes in data (a sequence of tokens) $X\in \mathbb{R}^{n\times d}$ and for each token $x^{(i)}\in \mathbb{R}^{d\times 1}$, it computes (via learned projection, to be discussed in Section \ref{sec-learnedembedding}), a query $q_i \in \mathbb{R}^{d_q\times 1}$, key $k_{i} \in \mathbb{R}^{d_k\times 1}$, and value $v_{i} \in \mathbb{R}^{d_v\times 1}$. In practice, $d_q=d_k=d_v$ and we often denote all three embedding dimension via a unified $d_k.$\note{Note that $d_k$ differs from $d$: $d$ is the dimension of raw input token $\in \mathbb{R}^{d_q\times 1}$}
 
-The self-attention layer then take in these query, key, and values, and compute a self-attention matrix
+The self-attention layer then takes in these query, key, and values, and compute a self-attention matrix
 \begin{eqnarray}
 \alpha = \begin{bmatrix}
     \text{softmax}\left( \begin{bmatrix}

@@ -5,7 +5,7 @@
 \section{Classification}
 
 Classification is a machine learning problem seeking to map from
-inputs $\R^d$ to outputs in an\anchorednote{unordered set.}{in contrast to a continuous real-valued
+inputs $\R^d$ to outputs in an unordered set.\note{in contrast to a continuous real-valued
   output, as we saw for linear regression} \index{classification}
 Examples of classification output sets could be $\{{\text apples}, {\text oranges}, {\text pears}\}$ if we're
 trying to figure out what type of fruit we have, or
@@ -386,7 +386,7 @@ classifiers, it is very difficult to
 find values for $\theta, \theta_0$ that minimize simple 0-1 training error
 \[J(\theta, \theta_0) = \frac{1}{n} \sum_{i=1}^n \mathcal{L}_{01}(\text{sign}(\theta^T\ex{x}{i} + \theta_0),
   \ex{y}{i})\;\;.\]
-This problem is NP-hard, which probably
+This problem is NP-hard, which probably%
 \note{The ``probably'' here is not because we're too lazy to look it
   up, but actually because of a fundamental unsolved problem in
   computer-science theory, known as ``P vs. NP.''}
@@ -560,7 +560,7 @@ into more than two classes.
 
 In order to simplify the description, we assume that (or transform our
 data so that) the labels
-in the training data are $y \in \{0, 1\}$.
+in the training data are $y \in \{0, 1\}$.%
 \note{\bf Remember to be sure your $y$
   values have this form if you try to learn an LLC using NLL!}
 
@@ -607,14 +607,14 @@ loss function:
   \text{guess})\right) \;\;.
 \end{equation*}
 This loss function is also sometimes referred to as the {\em log loss}
-or {\em cross entropy}\index{negative log-likelihood!loss function}. \note{You can use any base for the logarithm
+or {\em cross entropy}\index{negative log-likelihood!loss function}.% \note{You can use any base for the logarithm
   and it won't make any real difference.  If we ask you for numbers,
-  use log base $e$.}
+  use log base $e$.
 
 {\bf What is the objective function for linear logistic classification?}
 We can finally put all these pieces together and develop an objective
 function for optimizing regularized negative log-likelihood for a
-linear logistic classifier. \note{That's a lot of fancy words!}  In
+linear logistic classifier.\note{That's a lot of fancy words!}  In
 fact, this process is usually called ``logistic regression,'' so
 we'll call our objective $J_\text{lr}$, and define it as
 \begin{equation}
@@ -788,7 +788,7 @@ context of neural networks, in Section~\ref{sec-make_nn_work}.
 
 First we need derivatives with respect to both $\theta_0$ (the scalar
 component) and $\theta$ (the vector component) of $\Theta$.
-Explicitly, they are: \note{Some passing familiarity with matrix
+Explicitly, they are:\note{Some passing familiarity with matrix
   derivatives is helpful here.  A foolproof way of computing them is
   to compute partial derivative of $J$ with respect to each component
   $\theta_i$ of $\theta$.}
@@ -969,11 +969,11 @@ $\R^d$ into a $K$-dimensional output.  Furthermore, we would like this
 $\ex{x}{i}$ into a vector value $\ex{z}{i} \in \R^K$ by letting $\theta$ be a
   whole $d \times K$ {\em matrix} of parameters, and $\theta_0$ be a $K
 \times 1$ vector, so that
-  \[z = \theta^T x + \theta_0\;\;.\]
-  \note{Let's check dimensions!  $\theta^T$ is $K \times d$ and $x$ is
+  \[z = \theta^T x + \theta_0\;\;.\]%
+\note{Let's check dimensions!  $\theta^T$ is $K \times d$ and $x$ is
     $d \times 1$, and $\theta_0$ is $K \times 1$, so $z$ is $K \times
-      1$ and we're good!}
-  Next, we have to extend our use of the sigmoid function to the
+      1$ and we're good!}%
+Next, we have to extend our use of the sigmoid function to the
   multi-dimensional {\em softmax} function, that takes
   a whole vector $z \in \R^K$ and generates
   \[g = \textit{softmax}(z) =

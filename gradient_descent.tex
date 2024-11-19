@@ -88,7 +88,7 @@ to terminate, including\index{gradient descent!stopping criteria}:
 
 \begin{theorem}
   Choose any small distance $\tilde{\epsilon} > 0$.
-  If we assume that $f$ has a minimum, is sufficiently ``smooth'' and \anchorednote{convex,}{A function is convex if the line segment between any two points on the graph of the function lies above or on the graph.}
+  If we assume that $f$ has a minimum, is sufficiently ``smooth'' and convex,\note{A function is convex if the line segment between any two points on the graph of the function lies above or on the graph.}
   and if the learning rate $\eta$ is sufficiently small, gradient descent will reach a point within $\tilde{\epsilon}$ of a global optimum point $\Theta$.\index{gradient descent!convergence}
 
   % Previous theorem:
@@ -300,8 +300,7 @@ the update rule
   \ex{\theta}{t} = \ex{\theta}{t-1} - \eta \frac{2}{n} \sum_{i=1}^{n} \left( \left[ \ex{\theta}{t-1}\right]^T x^{(i)} - y^{(i)} \right) x^{(i)}
   \,.
 \end{equation}
-{~\hfill ~\note{Beware double superscripts!  $\left[ \theta \right]^T$
-  is the transpose of the vector $\theta$}}
+{~\hfill ~\note{Beware double superscripts!  $\left[ \theta \right]^T$ is the transpose of the vector $\theta$.}}
 
 \subsection{Ridge regression}
 Now, let's add in the regularization term, to get the ridge-regression
@@ -314,7 +313,7 @@ we really do need to separate the parameter vector $\theta$ from the
 offset $\theta_0$, and so, from the perspective of our general-purpose
 gradient descent method, our whole parameter set $\Theta$ is defined
 to be $\Theta = (\theta, \theta_0)$.  We will go ahead and find the
-gradients separately for each one:
+gradients separately for each one:%
 \note{Some passing familiarity with matrix
   derivatives is helpful here.  A foolproof way of computing them is to compute
   partial derivative of $J$ with respect to each component $\theta_i$
@@ -389,7 +388,7 @@ regression becomes\index{gradient descent!applied to ridge regression}
 
 When the form of the gradient is a sum, rather than take one big(ish)
 step in the direction of the gradient, we can, instead,
-randomly \note{The word ``stochastic'' means probabilistic, or random;
+randomly\note{The word ``stochastic'' means probabilistic, or random;
   so does ``aleatoric,'' which is a very cool word.  Look up
   aleatoric music, sometime.}
 select one term of the sum, and take a very small step in that
@@ -441,8 +440,8 @@ learning rate sequence that works.
   If $f$ is convex, and $\eta(t)$ is a sequence satisfying
   $$ \sum_{t = 1}^{\infty}\eta(t) = \infty \;\;\text{and}\;\;
     \sum_{t = 1}^{\infty}\eta(t)^2 < \infty \;\;,$$
-  then SGD converges {\em with probability one}
-  \note{We have left out some gnarly conditions in this theorem. Also, you
+  then SGD converges {\em with probability one}%
+\note{We have left out some gnarly conditions in this theorem. Also, you
     can learn more about the subtle difference between ``with probability
     one'' and ``always'' by taking an advanced probability course.}
   to the optimal $\Theta$.\index{stochastic gradient descent!convergence}
