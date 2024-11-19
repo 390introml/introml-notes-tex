@@ -174,7 +174,7 @@ The Q-learning algorithm below adapts this value-iteration idea to the
   {\sc rl} scenario, where we do not know the transition function $T$ or
 reward function $R$, and instead rely on samples to perform the updates.
 \begin{codebox}
-  \Procname{$\proc{Q-Learning}(\mathcal{S}, \mathcal{A},  \gamma, \epsilon, \alpha, T, s_0)$}\label{proc:Q_learn}
+  \Procname{$\proc{Q-Learning}(\mathcal{S}, \mathcal{A},  \gamma, \alpha, s_0, T)$}\label{proc:Q_learn}
   \li $t=0$ 
   \li \For $s \in \mathcal{S}, a \in \mathcal{A}:$
   \li   \Do
