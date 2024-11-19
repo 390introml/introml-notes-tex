@@ -174,23 +174,24 @@ The Q-learning algorithm below adapts this value-iteration idea to the
   {\sc rl} scenario, where we do not know the transition function $T$ or
 reward function $R$, and instead rely on samples to perform the updates.
 \begin{codebox}
-  \Procname{$\proc{Q-Learning}(\mathcal{S}, \mathcal{A},  \gamma, \alpha, s_0, T)$}\label{proc:Q_learn}
-  \li $t=0$ 
+  \Procname{$\proc{Q-Learning}(\mathcal{S}, \mathcal{A},  \gamma, \alpha, s_0, \text{max-iter})$}\label{proc:Q_learn}
+  \li $i=0$ 
   \li \For $s \in \mathcal{S}, a \in \mathcal{A}:$
   \li   \Do
   ${Q_{old}}(s, a) = 0$
   \End
   \li $s \gets s_0$
-  \li \While $t < T$:
+  \li \While $i < \text{max-iter}$:
   \li \Do
   $a \gets \text{select}\_\text{action}(s, {Q_{old}}(s, a))$
   \li     $r,s' \gets \text{execute}(a)$
   \li     ${Q}_{\text{new}}(s, a) = (1-\alpha){Q}_{\text{old}}(s, a)
     + \alpha(r + \gamma \max_{a'}{Q}_{\text{old}}(s', a'))$
   \li $s \gets s'$
-  \li $t \gets (t+1)$
-  \End
+  \li $i \gets (i+1)$
   \li      $Q_{\text{old}} = Q_{\text{new}}$
+  \End
+  \li \Return $Q_{\text{new}}$
   \End
 \end{codebox}
 
