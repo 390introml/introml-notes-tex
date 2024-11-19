@@ -45,6 +45,7 @@ environment takes a particular form:
   \item Learner observes {\em reward} $\ex{r}{i+1}$
   \item $\ldots$
 \end{compactitem}
+
 Similar to MDPs, the learner is supposed to find a {\em policy}\index{reinforcement
   learning!policy}\index{policy!reinforcement learning}, mapping a state $s$
 to action $a$, that maximizes expected reward over time.
@@ -173,22 +174,21 @@ The Q-learning algorithm below adapts this value-iteration idea to the
   {\sc rl} scenario, where we do not know the transition function $T$ or
 reward function $R$, and instead rely on samples to perform the updates.
 \begin{codebox}
-  \Procname{$\proc{Q-Learning}(\mathcal{S}, \mathcal{A},  \gamma, \epsilon, \alpha, s_0)$}\label{proc:Q_learn}
+  \Procname{$\proc{Q-Learning}(\mathcal{S}, \mathcal{A},  \gamma, \epsilon, \alpha, T, s_0)$}\label{proc:Q_learn}
+  \li $t=0$ 
   \li \For $s \in \mathcal{S}, a \in \mathcal{A}:$
   \li   \Do
   ${Q_{old}}(s, a) = 0$
   \End
   \li $s \gets s_0$
-  \li \While True:
-  \li   \Do
+  \li \While $t < T$:
+  \li \Do
   $a \gets \text{select}\_\text{action}(s, {Q_{old}}(s, a))$
   \li     $r,s' \gets \text{execute}(a)$
   \li     ${Q}_{\text{new}}(s, a) = (1-\alpha){Q}_{\text{old}}(s, a)
     + \alpha(r + \gamma \max_{a'}{Q}_{\text{old}}(s', a'))$
   \li $s \gets s'$
-  \li      \If $\max_{s, a}\lvert Q_{\text{old}}(s, a) - Q_{\text{new}}(s, a)\rvert < \epsilon:$
-  \Do
-  \li           return $Q_{\text{new}}$
+  \li $t \gets (t+1)$
   \End
   \li      $Q_{\text{old}} = Q_{\text{new}}$
   \End
@@ -227,9 +227,7 @@ would allow the action to be drawn from, e.g., a continuous range of
 numbers. There are now many extensions developed based on Q-learning
 that can handle continuous state and action spaces (we'll look at one
 soon), and therefore the algorithm above is also sometimes referred to
-more 
-% verbosely or 
-specifically as tabular Q-learning.
+more  specifically as tabular Q-learning.
 
 In the Q-learning update rule
 \begin{equation}\label{q_avg}
