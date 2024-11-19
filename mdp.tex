@@ -118,14 +118,17 @@ In this class, we assume the rewards are deterministic functions. Further, in th
 
 
 
-A {\it{policy}}\index{policy} is a function $\pi: \mathcal S \rightarrow \mathcal A$
+A {\it{policy}}\index{policy} is a function $\pi$
 that specifies what action to take in each state.  The policy is what
 we will want to learn; it is akin to the strategy that a player
 employs to win a given game.  Below, we take just the initial steps
 towards this eventual goal.  We describe how to evaluate how good a
-policy is, first in the {\em finite horizon}  case
+policy is, first in the {\em finite horizon} case
 (Section~\ref{sec-mdp_finite_horizon}) when the total number of
-transition steps is finite.  Then we consider the {\em infinite horizon}
+transition steps is finite.  In the finite horizon case, we typically denote
+the policy as $\pi_h(s)$, where $h\in\mathbb N$ is a non-negative integer
+denoting the number of steps remaining and $s \in \mathcal S$ is the current
+state. Then we consider the {\em infinite horizon}
 case (Section~\ref{sec-mdp_infinite_horizon}), when you
 don't know when the game will be over.
 
@@ -146,8 +149,8 @@ will have with the {\sc mdp}\note{In the finite-horizon case, we usually
   set the discount factor $\gamma$ to 1.}.
 
 We seek to measure the goodness of a
-policy. We do so by defining for a given {\sc mdp} policy $\pi$ and horizon
-$h$, the ``horizon $h$ {\em value}'' of a state, $V^{h}_\pi(s)$.  We
+policy. We do so by defining for a given horizon $h$ and {\sc mdp} policy $\pi_h$, 
+the ``horizon $h$ {\em value}'' of a state, $V^{h}_\pi(s)$.  We
 do this by induction on the horizon, which is the {\em number of steps
     left to go}.
 
@@ -162,30 +165,30 @@ to the reward it will get in state $s$ plus the next state's expected horizon $h
 value, discounted by a factor $\gamma$.  So, starting with horizons 1 and 2, and then
 moving to the general case, we have:
 \begin{align}
-  V^1_{\pi}(s) & = R(s, \pi(s)) + 0                                                     \\
+  V^1_{\pi}(s) & = R(s, \pi_1(s)) + 0                                                     \\
   \label{eq:finite_val_1}
-  % V^2_{\pi}(s) & = R(s, \pi(s)) + \sum_{s'}T(s, \pi(s), s')  R(s', \pi(s'))      \\
-  V^2_{\pi}(s) & = R(s, \pi(s)) +  \gamma \sum_{s'}T(s, \pi(s), s')  V^1_{\pi}(s')      \\
+  % V^2_{\pi}(s) & = R(s, \pi_2(s)) + \sum_{s'}T(s, \pi_2(s), s')  R(s', \pi(s'))      \\
+  V^2_{\pi}(s) & = R(s, \pi_2(s)) +  \gamma \sum_{s'}T(s, \pi_2(s), s')  V^1_{\pi}(s')      \\
   \vdots
   \nonumber                                                                             \\
-  V^h_{\pi}(s) & = R(s, \pi(s)) + \gamma \sum_{s'}T(s, \pi(s), s')  V^{h - 1}_{\pi}(s')
+  V^h_{\pi}(s) & = R(s, \pi_h(s)) + \gamma \sum_{s'}T(s, \pi_h(s), s')  V^{h - 1}_{\pi}(s')
   \label{eq:finite_value}
 \end{align}
 The sum over $s'$ is an {\em expectation}\index{expectation}: it
 considers all possible next states $s'$, and computes an average of
 their $(h-1)$-horizon values, weighted by the probability that the
 transition function from state $s$ with the action chosen by the
-policy $\pi(s)$ assigns to arriving in state $s'$, and discounted by $\gamma$.
+policy $\pi_h(s)$ assigns to arriving in state $s'$, and discounted by $\gamma$.
 
 \question{What is $\sum_{s'} T(s, a, s')$ for any particular $s$ and $a$?}
 
 \question{Convince yourself that Eqs.~\ref{eq:finite_val_0}
   and~\ref{eq:finite_val_1} are special cases of Eq.~\ref{eq:finite_value}.}
 
-Then we can say that a policy $\pi_1$ is better than policy $\pi_2$ for horizon
-$h$, i.e., $\pi_1 >_h \pi_2$, if and only if for all $s \in \mathcal S$,
-$V_{\pi_1}^h(s) \geq V_{\pi_2}^h(s)$ and there exists at least one $s
-  \in \mathcal S$ such that $V_{\pi_1}^h(s) > V_{\pi_2}^h(s)$.
+Then we can say that a policy $\pi$ is better than policy $\bar{\pi}$ for horizon
+$h$ if and only if for all $s \in \mathcal S$,
+$V_{\pi}^h(s) \geq V_{\bar{\pi}}^h(s)$ and there exists at least one $s
+  \in \mathcal S$ such that $V_{\pi}^h(s) > V_{\bar{\pi}}^h(s)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Infinite-horizon value functions}
@@ -238,7 +241,7 @@ where $R_t$ is the reward received at time $t$.
   (deterministic) actions dictated by policy $\pi.$
 \end{examplebox}
 
-Now, for the infinite-horizon case, we select a discount factor $0 < \gamma < 1$,
+Now, for the infinite-horizon case, we select a discount factor $0 \leq \gamma \leq 1$,
 and evaluate a policy based on its expected {\it{infinite horizon discounted value}}:
 \begin{equation}
   \mathbb{E}\left[\sum_{t = 0}^{\infty}\gamma^tR_t \mid \pi, s_0\right]
