@@ -50,11 +50,11 @@ To measure how similar any two word embeddings are (in terms of their numeric va
 % ORIG VERSION (I'd remove this)
 %One can use the so-called cosine similarity to encode the idea that, "closer" vectors can capture semantic similarities between words. In particular, if $u$ and $v$ are column vectors corresponding to two words, then the {\em cosine} similarity between them is given by
 \begin{eqnarray}
-  \frac{u^T v}{ |u|\, |v|\,} = \cos <u, v>
+  \frac{u^T v}{ |u|\, |v|\,} = \cos \langle u, v \rangle
   \,,
 \end{eqnarray}
 % switch from \theta to \alpha to avoid confusion with \theta as used in rest of chapter.
-where $|u|$ and $|v|$ are the lengths of the vectors, and $<u, v>$ is the angle between $u$ and $v$.  The cosine similarity is $+1$ when $u=v$, zero when the two vectors are perpendicular to each other, and $-1$ when the two vectors are diametrically opposed to each other.  Thus, higher values correspond to vectors that are numerically more similar to each other.
+where $|u|$ and $|v|$ are the lengths of the vectors, and $\langle u, v \rangle$ is the angle between $u$ and $v$.  The cosine similarity is $+1$ when $u=v$, zero when the two vectors are perpendicular to each other, and $-1$ when the two vectors are diametrically opposed to each other.  Thus, higher values correspond to vectors that are numerically more similar to each other.
 %closer semantic meaning of the words corresponding to the vectors.
 
 While word embeddings -- and various approaches to create them -- have existed for decades, the first approach that produced astonishingly effective word embeddings was {\em word2vec} in 2012. This revolutionary approach was the first highly-successful approach of applying deep learning to NLP, and it enabled all subsequent progress in the field, including Transformers. The details of {\em word2vec} are beyond the scope of this course, but we note two facts: (1) it created a single word embedding for each distinct word in the training corpus (not on a per-occurrence basis); (2) it produced word embeddings that were so useful, many relationships between the vectors corresponded with real-world semantic relatedness. For example, when using {\em Euclidean distance} as a distance metric between two vectors, word2vec produced word embeddings with properties such as (where $v_{\tt word}$ is the vector for ${\tt word}$):
@@ -208,11 +208,12 @@ In other words, the conditional probability distribution $p(k | q)$ gives the ``
 \end{eqnarray}
 is the ``attention output.''
 
-The meaning of this weighted average value may be ambiguous when the values are just words.  However, the attention output really becomes meaningful when the value are projected in some semantic embedding space (and such projection are typically done in transformers via learned embedding weights).
+The meaning of this weighted average value may be ambiguous when the values are just words.  However, the attention output really becomes meaningful when the values are projected in some semantic embedding space (and such projections are typically done in transformers via learned embedding weights).
 
 The same weighted-sum idea generalizes to multiple query, key, and values. In particular, suppose there are $n_q$ number of queries, $n_k$ number of keys (and therefore $n_k$ number of values), one can compute an attention matrix
 
-\begin{eqnarray}A = \begin{bmatrix}
+\begin{eqnarray}
+\alpha = \begin{bmatrix}
     \text{softmax}\left( \begin{bmatrix}
                            q_1^\top k_1 & q_1^\top k_2 & \cdots & q_1^\top k_{n_k}
                          \end{bmatrix} / \sqrt{d_k} \right) \\
@@ -228,7 +229,7 @@ The same weighted-sum idea generalizes to multiple query, key, and values. In pa
 
 Here, $\text{softmax}_j$ is a softmax over the $n_k$-dimensional vector indexed by $j$, so in Eq.~\ref{eq:xfm_softmax} this means a softmax computed over keys.  In this equation, the normalization by $\sqrt{d_k}$ is done to reduce the magnitude of the dot product, which would otherwise grow undesirably large with increasing $d_k,$ making it difficult for (overall) training.
 
-Let $\alpha_{ij}$ be the entry in $i$th row and $j$th column in the attention matrix $A$. Then $\alpha_{ij}$ helps answer the question "which tokens $x^{(j)}$ help the most with
+Let $\alpha_{ij}$ be the entry in $i$th row and $j$th column in the attention matrix $\alpha$. Then $\alpha_{ij}$ helps answer the question "which tokens $x^{(j)}$ help the most with
 predicting the corresponding output token $y^{(i)}$?" The attention output is given
 by a weighted sum over the values:
 
@@ -284,8 +285,9 @@ Self-attention is an attention mechanism where the keys, values, and queries are
 
 At a very high level, typical transformer with self-attention layers maps $\mathbb{R}^{n\times d} \longrightarrow \mathbb{R}^{n\times d}$. In particular, the transformer takes in data (a sequence of tokens) $X\in \mathbb{R}^{n\times d}$ and for each token $x^{(i)}\in \mathbb{R}^{d\times 1}$, it computes (via learned projection, to be discussed in Section \ref{sec-learnedembedding}), a query $q_i \in \mathbb{R}^{d_q\times 1}$, key $k_{i} \in \mathbb{R}^{d_k\times 1}$, and value $v_{i} \in \mathbb{R}^{d_v\times 1}$. In practice, $d_q=d_k=d_v$ and we often denote all three embedding dimension via a unified $d_k.$\note{Note that $d_k$ differs from $d$: $d$ is the dimension of raw input token $\in \mathbb{R}^{d_q\times 1}$}
 
-The self-attention layer then take in these query, key, and values, and compute a self-attention matrix
-\begin{eqnarray}A = \begin{bmatrix}
+The self-attention layer then takes in these query, key, and values, and compute a self-attention matrix
+\begin{eqnarray}
+\alpha = \begin{bmatrix}
     \text{softmax}\left( \begin{bmatrix}
                            q_1^\top k_1 & q_1^\top k_2 & \cdots & q_1^\top k_{n}
                          \end{bmatrix} / \sqrt{d_k} \right) \\
@@ -302,8 +304,10 @@ The self-attention layer then take in these query, key, and values, and compute 
 Comparing this self-attention matrix with the attention matrix described in Equation \ref{eq:xfm_softmax}, we notice the only difference lies in the dimensions: since in self-attention, the query, key, and value all come from the same input, we have $n_q=n_k=n_v$, and we often denote all three with a unified $n$.
 
 The self-attention output is then given by a weighted sum over the values:
-$${y}^{(i)} = \sum_{j=1}^n  \alpha_{ij}
-  v_{j}$$
+\begin{eqnarray}
+  {y}^{(i)} = \sum_{j=1}^n  \alpha_{ij} v_{j}
+\label{eq:self_attention_output}
+\end{eqnarray}
 
 This diagram below shows (only) the middle input token generating a query that is then combined with the keys computed with all tokens to generate the attention weights via a softmax. The output of the softmax is then combined with values computed from all tokens, to generate the attention output corresponding to the middle input token. Repeating this for each input token then generates the output.
 
@@ -318,7 +322,7 @@ This diagram below shows (only) the middle input token generating a query that i
 %  - output size same as input
 %  - position encoding
 %  - masking
-\question{We have five colored tokens in the diagram above (gray, blue, organge, green, red). Could you read off the diagram the correspondence between the color and input, query, query, value, output? }
+\question{We have five colored tokens in the diagram above (gray, blue, orange, green, red). Could you read off the diagram the correspondence between the color and input, query, value, output? }
 
 Note that the size of the output is the same as the size of the input.  Also, observe that there is no apparent notion of ordering of the input words in the depicted structure.  Positional information can be added by encoding a number for token (giving say, the token's position relative to the start of the sequence) into the vector embedding of each token.  And note that a given query need not pay attention to all other tokens in the input; in this example, the token used for the query is not used for a key or value.
 
@@ -363,7 +367,7 @@ For simplicity, we assume the transformer internally uses self-attention. Full g
 Formally, a transformer block is a parameterized function $f_\theta$ that maps $\R^{n\times d}\rightarrow \R^{n\times d}$, where the input data $X \in \R^{n\times d}$ is often represented as a sequence of $n$ tokens, with each token $x^{(i)}\in \mathbb{R}^{d\times 1}.$
 
 
-Three projection matrices (weights) $W_{q}, W_k, W_v$ are to be learned, such that, for each token $x^{(i)}\in \mathbb{R}^{d\times 1}$, we produce 3 distinct vectors: a query vector $q_i = W_q^T x^{(i)}$; a key vector $k_i = W_k^T x^{(i)}$; a value vector $v_i = W_v^T x^{(i)},$ all 3 of these vectors $\mathbb{R}^{d_k\times 1}$ and the learned weights $W_{q}, W_{k}, W_{v} \in \R^{d\times d_k}.$
+Three projection matrices (weights) $W_{q}, W_k, W_v$ are to be learned, such that, for each token $x^{(i)}\in \mathbb{R}^{d\times 1}$, we produce 3 distinct vectors: a query vector $q_i = W_q^T x^{(i)}$; a key vector $k_i = W_k^T x^{(i)}$; and a value vector $v_i = W_v^T x^{(i)}$.  All three of these vectors are in $\mathbb{R}^{d_k\times 1}$ and the learned weights are $W_{q}, W_{k}, W_{v} \in \R^{d\times d_k}$.
 
 If we stack these $n$ query, key, value vectors into matrix- form, such that $Q\in \mathbb{R}^{n\times d_k}$, $K\in \mathbb{R}^{n\times d_k}$, and $V\in \mathbb{R}^{n\times d_k},$ then we can more compactly write out the learned transformation from the sequence of input token $X$:
 \begin{eqnarray*}
@@ -373,9 +377,9 @@ If we stack these $n$ query, key, value vectors into matrix- form, such that $Q\
   \\
   V &=& X W_{v}
 \end{eqnarray*}
-These $Q, K, V$ triple can then be used to produce one (self)attention-layer output. One such layer is called one "attention head".
+This $Q, K, V$ triple can then be used to produce one (self)attention-layer output. One such layer is called one ``attention head.''
 
-One can have more than one "attention head", such that: the queries, keys, and values are embedded via encoding matrices:
+One can have more than one ``attention head,'' such that: the queries, keys, and values are embedded via encoding matrices:
 \begin{eqnarray}
   Q^{(h)} &=& X W_{h,q}
   \\
@@ -385,15 +389,22 @@ One can have more than one "attention head", such that: the queries, keys, and v
 \end{eqnarray}
 and $W_{h,q}, W_{h,k}, W_{h,v} \in \R^{d\times d_k}$where $d_k$ is the size of the key/query embedding space, and $h \in \{1,\cdots,H\}$ is an index over ``attention heads.'' \note{for each attention-head $h$, we learn one set of $W_{h,q}, W_{h,k}, W_{h,v}$.}
 
+The attention weights $\alpha^{(h)}_{ij}$ for head $h$, query $i$ and key $j$ are then given by
+\begin{eqnarray}
+  \alpha^{(h)}_{ij} = \text{softmax}_j \left( \frac{{Q^{(h)}_i}^T K^{(h)}_j}{\sqrt{d_k}}  \right)
+\,.
+\label{eq:xfm_softmax}
+\end{eqnarray}
+Here, $Q^{(h)}_i$ denotes the row of $Q^{(h)}$ for input element $x^{(i)}$, and similarly $K^{(h)}_j$ corresponds to $x^{(j)}$.  Also, $\text{softmax}_j$ is a softmax over the $d_k$-dimensional vector indexed by $j$, so in Eq.~\ref{eq:xfm_softmax} this means a softmax computed over keys.  In this equation, the normalization by $\sqrt{d_k}$ is done to reduce the magnitude of the dot product, which would otherwise grow undesirably large with increasing $d_k$.
+
 We then perform a weighted sum over all the outputs for each head,
 \begin{eqnarray}
   {u'}^{(i)} = \sum_{h=1}^H W^T_{h,c} \sum_{j=1}^{n} \alpha^{(h)}_{ij} V^{(h)}_j
   \,,
 \end{eqnarray}
+where $W_{h,c} \in \R^{d_k\times d},$ ${u'}^{(i)} \in \R^{d\times 1},$.  The indices $i \in \{1,\cdots,n\}$ and $j \in \{1,\cdots,n\}$ are integer indices over tokens. \note{$V^{(h)}_j$ is the $d_k\times 1$ value embedding vector that corresponds to the input token $x^{j}$ for attention head $h$.}  Observe that this is just a weighted combination of self-attention outputs expressed more simply by Eq.~\ref{eq:self_attention_output}.
 
-where $W_{h,c} \in \R^{d_k\times d},$ ${u'}^{(i)} \in \R^{d\times 1},$ the indices $i \in \{1,\cdots,n\}$ and $j \in \{1,\cdots,n\}$ are an integer index over tokens. \note{$V^{(h)}_j$ is the $d_k\times 1$ value embedding vector that corresponds to the input token $x^{j}$ for attention head $h$.}
-
-This is then standardized and combined with $x^{(i)}$ using a $\text{LayerNorm}$ function (defined below) to become
+The weighted sum ${u'}^{(i)}$ is then standardized and combined with $x^{(i)}$ using a $\text{LayerNorm}$ function (defined below) to become
 \begin{eqnarray}
   {u}^{(i)} = \text{LayerNorm}\left(  x^{(i)} + {u'}^{(i)}; \gamma_1, \beta_1  \right)
 \end{eqnarray}

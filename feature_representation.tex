@@ -5,7 +5,7 @@ Linear regression and classification are powerful tools, but in the real world, 
 exhibit {\em non-linear} behavior that cannot immediately be
 captured by the linear models which we have built so far.  For example,
 suppose the true behavior of a system (with $d=2$) looks like this
-wavelet: \note{This plot is of the so-called {\em jinc}
+wavelet:\note{This plot is of the so-called {\em jinc}
 function $J_1(\rho)/\rho$ for $\rho^2=x_1^2 + x_2^2$}
 %
 % Note rho is radial distance squared, because we don't want to have to use
@@ -64,7 +64,7 @@ Let's look at an example data set that starts in 1-D:
   \end{center}
 \end{examplebox}
 
-These points are not linearly separable, \note{What's a linear
+These points are not linearly separable,\note{What's a linear
   separator for data in 1D?  A point!}  but consider the
 transformation $\phi(x) = [x,x^2]^T$. Putting the data in $\phi$ space,
 we see that it is now separable.  There are lots of possible
@@ -208,7 +208,7 @@ original space.
 
 For example, the wavelet pictured at the start of this chapter can be
 fit much better than with just a hyperplane, using linear regression
-with polynomials\anchorednote{up to order $k=8$:}{Specifically, this
+with polynomials up to order $k=8$:\note{Specifically, this
   example uses $[1, x_1, x_2, x_1^2 + x_2^2, (x_1^2 + x_2^2)^2, (x_1^2 + x_2^2)^4]^T$ }
 
 \centerline{\includegraphics[width=0.9\textwidth]{figures/regression_features2_fitsombrero.pdf}}
@@ -222,7 +222,7 @@ The raw data (with $n=1000$ random samples) is plotted on the left, and the regr
 
 Now let's look at a classification example and see how polynomial feature transformation may help us.
 
-One well-known example is the ``exclusive or'' ({\sc xor}) data set, the drosophila \note{D. Melanogaster is a species of fruit fly, used as a simple system in which to study genetics, since 1910.} of machine-learning data sets:
+One well-known example is the ``exclusive or'' ({\sc xor}) data set, the drosophila\note{D. Melanogaster is a species of fruit fly, used as a simple system in which to study genetics, since 1910.} of machine-learning data sets:
 
 \begin{examplebox}
   \begin{center}
@@ -464,8 +464,8 @@ $\phi(x) = \dfrac{x - \overline{x}}{\sigma}$, where $\overline{x}$
 is the average of the $\ex{x}{i}$, and $\sigma$ is the standard deviation of
 the $\ex{x}{i}$.  The resulting feature values will have mean $0$ and
 standard deviation $1$.   This transformation is sometimes called {\em
-    standardizing} a variable \note{Such standard variables are often known as
-  ``z-scores,'' for example, in the social sciences.}.
+    standardizing} a variable.\note{Such standard variables are often known as
+  ``z-scores,'' for example, in the social sciences.}
 
 Then, of course, we might apply a higher-order polynomial-basis
 transformation to one or more groups of numeric features.

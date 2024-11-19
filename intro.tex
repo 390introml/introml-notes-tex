@@ -165,7 +165,7 @@ features in data.
 
 % switched from y -> x, to be consistent with other examples
 Given samples $\ex{x}{1}, \ldots, \ex{x}{n} \in \R^d$ drawn i.i.d.
-from some distribution $\Pr(X)$\note{The capital $X$ is a typical practice to emphasize this is a so-called random variable. Small letters are often used in probability too; those are typically reserved to denote the realized values of random variables. It might help to concretely think of coin-tosses; there, the toss outcome is a random variable and it may be realized as a "head". This paragraph actually talks about both a random variable and a realization of it, can you spot that from the notation and do you feel the difference? } , the goal is to predict the probability
+from some distribution $\Pr(X)$\note{The capital $X$ is a typical practice to emphasize this is a so-called random variable. Small letters are often used in probability too; those are typically reserved to denote the realized values of random variables. It might help to concretely think of coin-tosses; there, the toss outcome is a random variable and it may be realized as a "head". This paragraph actually talks about both a random variable and a realization of it, can you spot that from the notation and do you feel the difference? }, the goal is to predict the probability
 $\Pr(\ex{x}{n+1})$ of an element drawn from the same distribution.
 Density estimation sometimes plays a role as a ``subroutine'' in the
 overall learning method for supervised learning, as well.
@@ -213,7 +213,7 @@ environment, in the following setting:
 
 \begin{itemize}
 
-  \item The agent observes the current state ${s}_t$ \note{Note it's standard practice in reinforcement learning to use $s$ and $a$ instead of $x$ and $y$ to denote the machine learning model's input and output. The subscript $t$ denotes the timestep, and captures the sequential nature of the problem.}.
+  \item The agent observes the current state ${s}_t$\note{Note it's standard practice in reinforcement learning to use $s$ and $a$ instead of $x$ and $y$ to denote the machine learning model's input and output. The subscript $t$ denotes the timestep, and captures the sequential nature of the problem.}.
 
   \item It selects an action ${a}_t.$
   \item It receives a reward, ${r}_{t}$, which typically depends on ${s}_{t}$
@@ -322,7 +322,7 @@ Any given prediction rule will usually be evaluated based on multiple prediction
 There is a theory of rational agency that argues that you should
 always select the action that {\em minimizes the expected loss}.  This
 strategy will, for example, make you the most money in the long run,
-in a gambling setting.  \note{Of course, there are other models for
+in a gambling setting.\note{Of course, there are other models for
   action selection and it's clear that people do not always (or maybe
   even often) select actions that follow this rule.}  As mentioned above, expected loss is
 also sometimes called risk in ML literature,
@@ -361,7 +361,7 @@ of one or more parameter values\index{parameter} that will be determined by fitt
 model to the training data and then be held fixed during testing.  
 
 Given a new $\ex{x}{n+1}$, we would then make the prediction $h(\ex{x}{n+1};
-  \Theta)$.  \note{We write $f(a ; b)$ to describe a function that is
+  \Theta)$.\note{We write $f(a ; b)$ to describe a function that is
   usually applied to a single argument $a$, but is a member of a
   parametric family of functions, with the particular function
   determined by parameter value $b$.}
@@ -380,7 +380,6 @@ seek $\Theta$ that minimizes
   \trainerr(h; \Theta) =  \frac{1}{n}\sum_{i = 1}^n
   \mathcal{L}(h(\ex{x}{i};\Theta), \ex{y}{i})\;\;,
 \end{eqnarray*}
-
 where the loss function $\mathcal{L}(g, a)$ measures how bad it would be to make a guess of $g$ when the actual value is $a$.
 
 We will find that minimizing training error alone is often not a good
