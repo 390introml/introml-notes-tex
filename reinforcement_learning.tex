@@ -205,10 +205,7 @@ Second, different contexts will influence how we want to choose when to stop
 iterating through the while loop. Again, in some games there may be a clear
 terminating state based on the rules of how it is played. On the other hand,
 a robot may be allowed to explore an environment \emph{ad infinitum}.
-In such a case, one may consider either setting a fixed number of transitions to take
-or we may want to stop iterating once the values in the Q-table are not changing.
-Finally, a single trajectory through the environment may not be sufficient to adequately
-explore all state-action pairs. In these instances, it becomes necessary to run
+In such a case, one may consider either setting a fixed number of transitions (as done explictly in the pseudo-code) to take; or we may want to stop iterating in the example once the values in the Q-table are not changing, after the algorithm has been running for a while. Finally, a single trajectory through the environment may not be sufficient to adequately explore all state-action pairs. In these instances, it becomes necessary to run
 through a number of iterations of the \nameref{proc:Q_learn} algorithm, potentially
 with different choices of initial state $s_0$\note{This notion of running a number
   of instances of \nameref{proc:Q_learn} is often referred to as experiencing multiple
