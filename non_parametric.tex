@@ -311,7 +311,7 @@ of $\proc{BuildTree}$.
 Let's think about how long each call of $\proc{BuildTree}$ takes to
 run. We have to consider all possible splits. So we consider a split
 in each of the $d$ dimensions. In each dimension, we only need to
-consider splits betwee two data points (any other split will give the
+consider splits between two data points (any other split will give the
 same error on the training data). So, in total, we consider $O(d n)$
 splits in each call to $\proc{BuildTree}$.
 \question{Concretely, what would
